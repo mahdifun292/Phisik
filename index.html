@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جزوه تعاملی فیزیک هشتم ⚡ | تبدیل یکا، الکتریسیته ساکن، روش‌های باردار کردن و بار کوانتیده</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --grad:linear-gradient(135deg,#6366f1,#8b5cf6 50%,#06b6d4);
+  --ink:#1e1b3a;--muted:#5b5675;
+}
+body{font-family:'Vazirmatn',Tahoma,'Segoe UI',sans-serif;background:#f6f5fb;color:var(--ink);line-height:2;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-120px;left:-80px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.15),transparent 70%);z-index:-1;pointer-events:none}
+body::after{content:'';position:fixed;bottom:-140px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.13),transparent 70%);z-index:-1;pointer-events:none}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
+b{font-weight:800}
+::selection{background:#c7d2fe}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:64px 20px 46px;text-align:center;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #e4e1ff;color:#6d28d9;border-radius:999px;padding:6px 18px;font-size:.88rem;font-weight:700;box-shadow:0 4px 14px rgba(109,40,217,.08)}
+.hero h1{font-size:clamp(1.8rem,5vw,3.1rem);font-weight:900;margin:18px auto 10px;max-width:900px;background:linear-gradient(135deg,#4f46e5,#8b5cf6 45%,#0891b2);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.5}
+.hero .sub{color:var(--muted);max-width:680px;margin:0 auto;font-size:1.02rem}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:26px}
+.stat{background:#fff;border:1px solid #ece9ff;border-radius:16px;padding:9px 18px;font-weight:700;box-shadow:0 6px 18px rgba(99,102,241,.08);font-size:.92rem;color:#4338ca}
+.float-emoji{position:absolute;font-size:1.7rem;opacity:.45;animation:floaty 6s ease-in-out infinite;pointer-events:none}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(6deg)}}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #eeeaff}
+.nav-in{max-width:1120px;margin:auto;padding:10px 20px;display:flex;gap:6px;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{color:#4b4668;text-decoration:none;font-weight:600;font-size:.9rem;padding:7px 14px;border-radius:999px;transition:.2s}
+.nav a:hover{background:#f1efff;color:#5b21b6}
+.nav a.active{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 4px 12px rgba(99,102,241,.35)}
+
+/* ---------- SECTIONS ---------- */
+section{padding:54px 0 8px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-icon{width:56px;height:56px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 8px 20px rgba(99,102,241,.3);flex-shrink:0}
+.sec-head h2{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:900;line-height:1.5}
+.kicker{font-size:.83rem;color:#8b86ad;font-weight:700}
+.sec-desc{color:var(--muted);margin:4px 0 24px;max-width:780px;font-size:.98rem}
+.sub-h{font-size:1.22rem;font-weight:900;margin:36px 0 8px;color:#312e81;display:flex;align-items:center;gap:10px}
+.sub-h::before{content:'';width:6px;height:26px;border-radius:6px;background:var(--grad);flex-shrink:0}
+.sub-p{color:var(--muted);margin-bottom:16px;font-size:.95rem}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#fff;border:1px solid #eceaff;border-radius:20px;padding:22px;box-shadow:0 8px 24px rgba(99,102,241,.07);transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(99,102,241,.14)}
+.card h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card p{color:#4b4763;font-size:.94rem}
+.card p + p{margin-top:6px}
+.ico{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#f1efff;font-size:1.15rem;flex-shrink:0}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 13px;font-size:.8rem;font-weight:700;background:#f1efff;color:#5b21b6;border:1px solid #e4e1ff}
+
+/* ---------- TIPS ---------- */
+.tip{border-radius:16px;padding:13px 17px;margin:15px 0 4px;font-size:.92rem;display:flex;gap:11px;align-items:flex-start;border:1.5px solid;line-height:1.9}
+.tip .t-ico{font-size:1.25rem;line-height:1.6}
+.tip.gold{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.tip.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+.tip.green{background:#f0fdf4;border-color:#bbf7d0;color:#166534}
+.tip.pink{background:#fdf2f8;border-color:#fbcfe8;color:#9d174d}
+
+/* ---------- TABLES ---------- */
+.tbl-wrap{overflow-x:auto;border-radius:16px;border:1.5px solid #e9e6ff;background:#fff;box-shadow:0 8px 24px rgba(99,102,241,.07);margin:14px 0}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th{background:linear-gradient(135deg,#eef0ff,#f6f0ff);color:#4338ca;font-weight:800;padding:12px 14px;font-size:.9rem;text-align:right;border-bottom:2px solid #e4e1ff;white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid #f1efff;font-size:.92rem;color:#3f3b5c}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#faf9ff}
+.sym{font-weight:800;color:#6d28d9;direction:ltr;display:inline-block;font-size:.95em}
+.sym-l{direction:ltr;display:inline-block;font-weight:800;color:#0e7490;white-space:nowrap}
+
+/* ---------- PREFIX CHIPS ---------- */
+.pref-group{margin:14px 0}
+.pref-title{font-weight:800;margin-bottom:9px;font-size:.95rem}
+.pref-row{display:flex;flex-wrap:wrap;gap:8px}
+.pref{border-radius:12px;padding:6px 13px;font-weight:700;font-size:.88rem;border:1.5px solid;background:#fff;line-height:1.9}
+.pref b{font-size:.82rem;opacity:.9;font-weight:800}
+.pref.big{border-color:#a7f3d0;background:#f0fdf4;color:#047857}
+.pref.small{border-color:#fecaca;background:#fef2f2;color:#b91c1c}
+
+/* ---------- FORMULA ---------- */
+.formula{direction:ltr;text-align:center;background:#f8faff;border:1.5px dashed #c7d2fe;border-radius:12px;padding:7px 12px;font-weight:800;color:#3730a3;margin-top:10px;font-size:1rem}
+.formula sup{font-size:.68em}
+.fnote{font-size:.8rem;color:#8b86ad;margin-top:6px}
+.typ-chip{display:inline-block;border-radius:999px;padding:2px 11px;font-size:.74rem;font-weight:800;margin-top:9px}
+.typ-chip.sc{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.typ-chip.ve{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+
+/* ---------- SOLVED EXAMPLES ---------- */
+.example{background:#fff;border:1.5px solid #e7e4ff;border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(99,102,241,.08);margin:18px 0}
+.ex-head{display:flex;align-items:center;gap:10px;padding:13px 20px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-weight:800;flex-wrap:wrap}
+.ex-head .ex-tag{background:rgba(255,255,255,.22);border-radius:999px;padding:2px 12px;font-size:.78rem;font-weight:700}
+.ex-body{padding:18px 22px}
+.ex-q{font-weight:700;color:#312e81;background:#eef2ff;border-radius:12px;padding:10px 15px;margin-bottom:14px;font-size:.95rem}
+.step{display:flex;gap:12px;margin:9px 0;align-items:flex-start}
+.step-num{width:27px;height:27px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:7px}
+.step p{color:#3f3b5c;font-size:.94rem}
+.answer{margin-top:13px;background:#f0fdf4;border:1.5px solid #bbf7d0;color:#166534;border-radius:12px;padding:9px 15px;font-weight:800;display:flex;gap:8px;align-items:center;font-size:.95rem}
+/* ---------- ATOM ANIMATION ---------- */
+.atom-stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center}
+.atom{position:relative;width:250px;height:250px;margin:16px auto}
+.nucleus{position:absolute;left:50%;top:50%;width:58px;height:58px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 32%,#fcd34d,#f59e0b 55%,#d97706);box-shadow:0 0 34px rgba(245,158,11,.6);display:flex;align-items:center;justify-content:center;font-weight:900;color:#7c2d12;font-size:.85rem;z-index:3;animation:pulse 2.6s ease-in-out infinite;white-space:nowrap}
+.orbit-tilt{position:absolute;left:50%;top:50%;width:240px;height:102px;margin:-51px 0 0 -120px}
+.t1{transform:rotate(0deg)}.t2{transform:rotate(60deg)}.t3{transform:rotate(120deg)}
+.spin{width:100%;height:100%;border:2px dashed rgba(99,102,241,.45);border-radius:50%;position:relative;animation:spin 6s linear infinite}
+.t2 .spin{animation-duration:8.5s;animation-direction:reverse}
+.t3 .spin{animation-duration:11s}
+.electron{position:absolute;top:-8px;left:calc(50% - 8px);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#a5f3fc,#06b6d4 72%);box-shadow:0 0 14px rgba(6,182,212,.95)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.09)}}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;justify-content:center}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;font-weight:700;border-radius:999px;padding:4px 13px;border:1.5px solid}
+.lg .dot{width:12px;height:12px;border-radius:50%}
+.lg.p{background:#fffbeb;border-color:#fde68a;color:#92400e}.lg.p .dot{background:#f59e0b}
+.lg.n{background:#f8fafc;border-color:#e2e8f0;color:#475569}.lg.n .dot{background:#94a3b8}
+.lg.e{background:#ecfeff;border-color:#a5f3fc;color:#0e7490}.lg.e .dot{background:#06b6d4}
+
+/* ---------- QUIZ ---------- */
+.quiz-box{background:#fff;border:1.5px solid #e7e4ff;border-radius:24px;box-shadow:0 12px 36px rgba(99,102,241,.1);padding:24px}
+.quiz-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.mode-btns{display:flex;gap:6px;background:#f1efff;border-radius:999px;padding:5px}
+.mode-btn{border:none;background:transparent;padding:8px 20px;border-radius:999px;font-family:inherit;font-weight:800;font-size:.88rem;color:#5b5675;cursor:pointer;transition:.2s}
+.mode-btn.active{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 4px 12px rgba(99,102,241,.35)}
+.mode-hint{font-size:.86rem;color:#6b6690;background:#f8f8ff;border:1px dashed #d8d4ff;border-radius:12px;padding:9px 15px;margin-bottom:16px}
+.q-progress{display:flex;align-items:center;gap:10px;flex:1;min-width:220px}
+.pbar{height:10px;background:#edeaff;border-radius:999px;overflow:hidden;flex:1}
+.pfill{height:100%;width:0;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:999px;transition:width .4s}
+.q-meta{font-size:.83rem;color:#6b6690;font-weight:800;white-space:nowrap}
+.q-card{border:1.5px solid #eceaff;border-radius:18px;padding:17px 18px;margin:13px 0;background:#fdfdff;transition:.3s}
+.q-top{display:flex;gap:8px;align-items:center;margin-bottom:9px;flex-wrap:wrap}
+.q-num{width:31px;height:31px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-weight:800;font-size:.83rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.q-cat{font-size:.73rem;font-weight:800;padding:3px 11px;border-radius:999px;background:#f1efff;color:#6d28d9}
+.q-type{font-size:.73rem;font-weight:800;padding:3px 11px;border-radius:999px;background:#fff7ed;color:#c2410c}
+.q-text{font-weight:700;color:#2a2648;margin-bottom:12px;font-size:.97rem;line-height:2}
+.opts{display:grid;gap:9px}
+.opt{border:2px solid #e8e6ff;border-radius:13px;padding:9px 15px;cursor:pointer;background:#fff;transition:.18s;font-size:.92rem;color:#3f3b5c;text-align:right;font-family:inherit;width:100%}
+.opt:hover:not(.off){border-color:#8b5cf6;background:#faf8ff;transform:translateX(-4px)}
+.opt.sel{border-color:#6366f1;background:#eef2ff;font-weight:700}
+.opt.ok{border-color:#10b981!important;background:#ecfdf5!important;font-weight:800}
+.opt.no{border-color:#ef4444!important;background:#fef2f2!important;animation:shake .3s}
+.opt.off{cursor:default}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.expl{display:none;margin-top:12px;border-radius:12px;padding:10px 15px;font-size:.87rem;background:#f0f9ff;border:1px solid #bae6fd;color:#0c4a6e;line-height:1.9}
+.expl.show{display:block}
+.expl b{color:#0369a1}
+.blank-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.blank-input{border:2px solid #e8e6ff;border-radius:13px;padding:9px 15px;font-family:inherit;font-size:.93rem;width:min(340px,100%);outline:none;transition:.2s;background:#fff;color:var(--ink)}
+.blank-input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.blank-input.ok{border-color:#10b981;background:#ecfdf5}
+.blank-input.no{border-color:#ef4444;background:#fef2f2}
+.btn{border:none;border-radius:14px;padding:11px 24px;font-family:inherit;font-weight:800;font-size:.93rem;cursor:pointer;transition:.2s}
+.btn-main{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 6px 16px rgba(99,102,241,.35)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(99,102,241,.45)}
+.btn-ghost{background:#f1efff;color:#5b21b6}
+.btn-ghost:hover{background:#e9e6ff}
+.btn:disabled{opacity:.55;cursor:default;transform:none!important}
+.quiz-actions{text-align:center;margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.result{display:none;text-align:center;padding:8px 0 4px}
+.result.show{display:block;animation:pop .5s}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.ring-wrap{position:relative;width:172px;height:172px;margin:12px auto}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:#edeaff;stroke-width:12}
+.ring-val{fill:none;stroke:url(#ringGrad);stroke-width:12;stroke-linecap:round;stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:stroke-dashoffset 1.3s ease}
+.ring-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-txt .big{font-size:2.1rem;font-weight:900;color:#4338ca;line-height:1.3}
+.ring-txt .sm{font-size:.78rem;color:#8b86ad;font-weight:700}
+.r-title{font-size:1.2rem;font-weight:900;color:#312e81}
+.r-msg{font-size:1rem;font-weight:800;margin:6px 0 2px}
+.r-sub{font-size:.86rem;color:var(--muted)}
+.cat-bars{max-width:540px;margin:20px auto 4px;text-align:right}
+.cat-row{margin:11px 0}
+.cat-row .lbl{display:flex;justify-content:space-between;font-size:.84rem;font-weight:800;color:#4b4763;margin-bottom:4px}
+.cat-bar{height:9px;background:#edeaff;border-radius:999px;overflow:hidden}
+.cat-fill{height:100%;width:0;background:linear-gradient(90deg,#8b5cf6,#06b6d4);border-radius:999px;transition:width 1.1s}
+
+/* ---------- NEW: EXPERIMENT CARDS ---------- */
+.exp-card{display:flex;flex-direction:column}
+.exp-scene{position:relative;height:112px;border-radius:14px;background:linear-gradient(135deg,#f8faff,#f5f0ff);border:1.5px dashed #d8d4ff;margin:12px 0;overflow:hidden;flex-shrink:0}
+.exp-label{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-size:.72rem;color:#8b86ad;font-weight:700}
+.scene-tv .tv-screen{position:absolute;top:16px;right:24px;font-size:2.2rem;animation:pulse2 2.5s infinite}
+.scene-tv .lint{position:absolute;color:#f59e0b;font-size:.95rem;opacity:0;left:22px;animation:lintfly 2.8s infinite}
+.scene-tv .l2{animation-delay:.9s;top:62%}
+.scene-tv .l3{animation-delay:1.8s;top:24%}
+@keyframes lintfly{0%{opacity:0;transform:translateX(0)}30%{opacity:1}100%{opacity:0;transform:translateX(140px)}}
+@keyframes pulse2{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.scene-water .faucet{position:absolute;top:8px;right:40px;font-size:1.9rem}
+.scene-water .stream{position:absolute;top:54px;right:58px;width:4px;height:46px;border-radius:4px;background:linear-gradient(#38bdf8,#0ea5e9);transform-origin:top center;animation:bend 3s ease-in-out infinite alternate}
+@keyframes bend{from{transform:rotate(0)}to{transform:rotate(24deg)}}
+.scene-water .comb{position:absolute;bottom:12px;left:36px;font-size:1.9rem;transform:rotate(-16deg)}
+.scene-paper .wall-side{position:absolute;top:0;bottom:0;right:0;width:32px;background:repeating-linear-gradient(45deg,#e2e8f0,#e2e8f0 8px,#cbd5e1 8px,#cbd5e1 16px)}
+.scene-paper .paper{position:absolute;top:26px;right:50px;font-size:1.6rem;animation:stick 2.6s ease-in-out infinite}
+@keyframes stick{0%,15%{transform:translateX(36px) rotate(6deg);opacity:.35}45%,100%{transform:translateX(0);opacity:1}}
+.scene-paper .hand{position:absolute;top:6px;right:62px;font-size:1.5rem;animation:pat 2.6s ease-in-out infinite}
+@keyframes pat{0%,20%{transform:translateX(0);opacity:1}45%,100%{transform:translateX(20px);opacity:0}}
+.why-btn{margin-top:auto;align-self:flex-start}
+.why-body{max-height:0;overflow:hidden;transition:max-height .5s ease,padding .5s ease,margin .5s ease;font-size:.87rem;color:#4b4763;line-height:1.95;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;font-weight:600}
+.why-body b{color:#15803d}
+.why-body.open{max-height:460px;padding:10px 14px;margin-top:12px}
+
+/* ---------- NEW: FRICTION DEMO ---------- */
+.friction-stage{display:flex;align-items:stretch;gap:8px;background:linear-gradient(135deg,#f8faff,#fdf4ff);border:1.5px dashed #d8d4ff;border-radius:16px;padding:16px;margin-top:14px}
+.fbox{flex:1;background:#fff;border:2px solid #e8e6ff;border-radius:16px;padding:12px;text-align:center;transition:.3s}
+.fbox.glass{border-color:#fcd34d}.fbox.cloth{border-color:#7dd3fc}
+.fbox.heat{box-shadow:0 0 0 4px rgba(245,158,11,.15)}
+.f-emoji{font-size:2.3rem}
+.f-name{font-weight:800;font-size:.9rem;margin-top:2px}
+.f-sign{margin-top:6px;font-weight:900;font-size:1.02rem;min-height:1.9em;color:#8b86ad}
+.f-sign.pos{color:#b45309}.f-sign.neg{color:#0369a1}
+.fmid{width:150px;position:relative;flex-shrink:0}
+.fmid .edot{position:absolute;left:calc(50% - 6px);width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#a5f3fc,#06b6d4);box-shadow:0 0 10px rgba(6,182,212,.9);opacity:0}
+.edot.d1{top:calc(50% - 30px)}.edot.d2{top:calc(50% - 6px)}.edot.d3{top:calc(50% + 18px)}
+.friction-stage.rub .edot{animation:efly 1.6s ease-in-out infinite}
+.friction-stage.rub .d2{animation-delay:.25s}.friction-stage.rub .d3{animation-delay:.5s}
+@keyframes efly{0%{opacity:0;transform:translateX(48px)}15%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateX(-48px)}}
+.fric-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:.68rem;color:#8b86ad;font-weight:700}
+.calc-out{margin-top:14px;background:#f0fdf4;border:1.5px solid #bbf7d0;color:#166534;border-radius:12px;padding:10px 15px;font-size:.9rem;line-height:2;font-weight:600}
+.calc-out b{color:#0369a1}
+.calc-out.err{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
+.calc-out.err b{color:#7f1d1d}
+
+/* ---------- NEW: STEPPER (SCENES) ---------- */
+.stepper{background:#fdfdff;border:1.5px solid #eceaff;border-radius:18px;padding:14px;margin-top:12px}
+.step-scenes{position:relative;min-height:235px}
+.step-scene{display:none}
+.step-scene.cur{display:block;animation:fadein .45s}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.scn{width:100%;max-width:430px;display:block;margin:0 auto}
+.scn-t{font-size:12px;font-weight:700;fill:#4b4763;font-family:inherit}
+.scn-lbl{font-size:10.5px;font-weight:700;fill:#8b86ad;font-family:inherit}
+.sg{font-size:14px;font-weight:900}
+.sg.plus{fill:#dc2626}.sg.minus{fill:#2563eb}
+.scene-cap{display:none}
+.step-info{background:#eef2ff;border-radius:12px;padding:10px 14px;font-size:.88rem;color:#3730a3;line-height:1.95;margin:10px 0;font-weight:600}
+.step-info b{color:#4338ca}
+.step-btns{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.step-dots{display:flex;gap:6px}
+.step-dots i{width:9px;height:9px;border-radius:50%;background:#ddd9ff;transition:.25s}
+.step-dots i.on{background:linear-gradient(135deg,#6366f1,#8b5cf6);transform:scale(1.3)}
+
+/* ---------- NEW: CHALLENGE ACCORDION ---------- */
+.ch-list{margin-top:12px;display:grid;gap:10px}
+.ch-head{width:100%;text-align:right;font-family:inherit;font-weight:800;font-size:.94rem;background:#f5f3ff;border:2px solid #e4e1ff;color:#5b21b6;border-radius:13px;padding:10px 15px;cursor:pointer;transition:.2s}
+.ch-head:hover{background:#ede9fe;transform:translateX(-3px)}
+.ch-head.open{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border-color:transparent}
+.ch-body{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .45s ease}
+.ch-item.open .ch-body{max-height:340px;padding:10px 15px 4px}
+.ch-body p{font-size:.9rem;color:#3f3b5c;line-height:2;font-weight:600}
+
+/* ---------- NEW: TRIBO LADDER ---------- */
+.trib-ladder{background:#fff;border:1.5px solid #e9e6ff;border-radius:18px;padding:14px;box-shadow:0 8px 24px rgba(99,102,241,.07)}
+.trib-end{text-align:center;font-weight:900;border-radius:12px;padding:8px 10px;font-size:.88rem}
+.trib-end.plus-end{background:#fef3c7;color:#b45309;border:1.5px solid #fde68a}
+.trib-end.minus-end{background:#e0f2fe;color:#075985;border:1.5px solid #bae6fd}
+.trib-scroll{margin:10px 0;display:grid;gap:6px}
+.trib-row{display:flex;align-items:center;gap:10px;background:#fdfdff;border:1.5px solid #efedff;border-radius:12px;padding:7px 12px;transition:.2s}
+.trib-row:hover{transform:translateX(-6px);border-color:#a5b4fc;background:#f5f4ff;box-shadow:0 4px 14px rgba(99,102,241,.1)}
+.trib-num{width:28px;height:28px;border-radius:9px;background:#f1efff;color:#5b21b6;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trib-name{font-weight:800;font-size:.95rem;min-width:118px}
+.trib-bar{height:8px;border-radius:99px;width:var(--w);flex:0 0 auto;max-width:150px;transition:width .8s}
+.trib-row:nth-child(1) .trib-bar{background:#d97706}
+.trib-row:nth-child(2) .trib-bar{background:#dd820f}
+.trib-row:nth-child(3) .trib-bar{background:#e18d18}
+.trib-row:nth-child(4) .trib-bar{background:#e59821}
+.trib-row:nth-child(5) .trib-bar{background:#e9a32a}
+.trib-row:nth-child(6) .trib-bar{background:#edae33}
+.trib-row:nth-child(7) .trib-bar{background:#f1b93c}
+.trib-row:nth-child(8) .trib-bar{background:#f5c445}
+.trib-row:nth-child(9) .trib-bar{background:#94a3b8}
+.trib-row:nth-child(10) .trib-bar{background:#7cc5ec}
+.trib-row:nth-child(11) .trib-bar{background:#63bbe8}
+.trib-row:nth-child(12) .trib-bar{background:#4ab1e4}
+.trib-row:nth-child(13) .trib-bar{background:#31a7e0}
+.trib-row:nth-child(14) .trib-bar{background:#1f96d2}
+.trib-row:nth-child(15) .trib-bar{background:#1286c1}
+.trib-row:nth-child(16) .trib-bar{background:#0b76ad}
+.trib-chg{font-size:.76rem;font-weight:800;color:#8b86ad;margin-inline-start:auto;white-space:nowrap}
+
+/* ---------- NEW: TRIBO LAB ---------- */
+.lab-row{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.lab-x{font-weight:900;color:#8b86ad}
+.lab-sel{font-family:inherit;font-weight:700;font-size:.92rem;color:#3730a3;background:#fff;border:2px solid #e8e6ff;border-radius:12px;padding:8px 12px;outline:none;cursor:pointer;transition:.2s;max-width:180px}
+.lab-sel:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.lab-out{margin-top:12px;background:#eff6ff;border:1.5px solid #bfdbfe;color:#1e40af;border-radius:12px;padding:10px 14px;font-size:.9rem;line-height:2;font-weight:600;min-height:56px}
+.lab-out b{color:#1d4ed8}
+
+/* ---------- NEW: QUANTIZATION VISUALS ---------- */
+.stairs{display:flex;align-items:flex-end;gap:8px;height:112px;margin:14px 10px 6px;border-bottom:2px solid #c7d2fe;padding:0 4px}
+.stairs span{flex:1;background:linear-gradient(180deg,#a78bfa,#6366f1);border-radius:8px 8px 0 0;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:flex-start;justify-content:center;padding-top:5px;opacity:0;transform:translateY(14px);transition:.5s}
+.stairs.vis span{opacity:1;transform:none}
+.stairs.vis span:nth-child(2){transition-delay:.15s}
+.stairs.vis span:nth-child(3){transition-delay:.3s}
+.stairs.vis span:nth-child(4){transition-delay:.45s}
+.ramp{height:112px;margin:14px 10px 6px;border-bottom:2px solid #bae6fd;position:relative}
+.ramp-fill{position:absolute;bottom:0;right:0;left:0;height:0;background:linear-gradient(135deg,#67e8f9,#0891b2);clip-path:polygon(0 100%,100% 100%,100% 0);transition:height 1.2s ease}
+.ramp.vis .ramp-fill{height:100%}
+
+/* ---------- NEW: CALCULATOR ---------- */
+.calc-card{background:linear-gradient(135deg,#fdfdff,#f5f3ff)}
+.calc-tabs{display:flex;gap:6px;background:#f1efff;border-radius:999px;padding:5px;width:fit-content;margin-bottom:12px;flex-wrap:wrap}
+.calc-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;font-weight:700;font-size:.95rem}
+.calc-row input,.calc-row select{font-family:inherit}
+@media(max-width:640px){
+  .trib-bar{display:none}
+  .trib-name{min-width:96px}
+  .step-scenes{min-height:250px}
+  .fmid{width:90px}
+}
+
+/* ---------- FOOTER & MISC ---------- */
+footer{text-align:center;padding:48px 20px 62px;color:#7c78a0;font-size:.92rem}
+footer .f-line{font-weight:800;color:#4338ca;margin-bottom:4px}
+#toTop{position:fixed;bottom:22px;left:22px;width:47px;height:47px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:1.25rem;cursor:pointer;box-shadow:0 8px 20px rgba(99,102,241,.4);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.vis{opacity:1;transform:none}
+@media(max-width:640px){
+  .atom{width:210px;height:210px}
+  .orbit-tilt{width:200px;height:86px;margin:-43px 0 0 -100px}
+  section{padding:44px 0 6px}
+  .quiz-box{padding:17px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .spin,.float-emoji,.nucleus{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <span class="float-emoji" style="top:15%;right:7%">⚡</span>
+  <span class="float-emoji" style="top:32%;left:9%;animation-delay:1s">🧪</span>
+  <span class="float-emoji" style="bottom:16%;right:13%;animation-delay:2s">📏</span>
+  <span class="float-emoji" style="bottom:22%;left:15%;animation-delay:1.5s">⚛️</span>
+  <span class="float-emoji" style="top:8%;left:38%;animation-delay:.5s">🔋</span>
+  <div class="container">
+    <div class="hero-badge">📘 جزوه تصویری و تعاملی — بر اساس جزوه فیزیک هشتم (تهیه و تنظیم: علی شنوندی)</div>
+    <h1>فیزیک هشتم؛ از تبدیل یکا تا بار الکتریکی کوانتیده</h1>
+    <p class="sub">کل جزوه را این‌جا یاد بگیر: کمیت‌های فیزیکی و تبدیل یکا، الکتریسیته ساکن و ساختار اتم، سه روش باردار کردن اجسام (مالش، تماس، القا)، جدول سری الکتریکی و کوانتیده بودن بار با فرمول q = ne — همه‌ی مثال‌های دست‌نویس جزوه حل‌شده و تعاملی! در پایان هم با آزمون جامع ۸۰ سوالی خودت را محک بزن.</p>
+    <div class="hero-stats">
+      <span class="stat">📚 ۶ فصل آموزشی</span>
+      <span class="stat">🧮 ۱۵ مثال حل‌شده</span>
+      <span class="stat">🧪 ۳ آزمایش تعاملی</span>
+      <span class="stat">🧲 آزمایشگاه سری الکتریکی</span>
+      <span class="stat">🖥️ ماشین‌حساب بار الکتریکی</span>
+      <span class="stat">📝 ۸۰ سوال تعاملی</span>
+      <span class="stat">🎯 دو حالت: تمرین و امتحان</span>
+      <span class="stat">💡 توضیح برای همه جواب‌ها</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="nav"><div class="nav-in">
+  <a href="#top" class="active">🏠 خانه</a>
+  <a href="#ch0">📐 کمیت‌های فیزیکی</a>
+  <a href="#convert">🔄 تبدیل یکا</a>
+  <a href="#static">⚡ الکتریسیته ساکن</a>
+  <a href="#charging">🔋 روش‌های باردار کردن</a>
+  <a href="#tribo">🧲 سری الکتریکی</a>
+  <a href="#charge">⚛️ بار کوانتیده</a>
+  <a href="#summary">🗂 خلاصه و مرور</a>
+  <a href="#quiz">📝 آزمون جامع</a>
+</div></nav>
+<!-- ================= SECTION 1: کمیت‌های فیزیکی ================= -->
+<section id="ch0">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">📐</div><div><div class="kicker">فصل صفرم — صفحه اول جزوه</div><h2>کمیت‌های فیزیکی و تبدیل یکا</h2></div></div>
+    <p class="sec-desc reveal">قبل از ورود به الکتریسیته، باید زبان فیزیک را یاد بگیریم: کمیت‌ها و یکاها. هر چیزی که در فیزیک اندازه می‌گیریم یک «کمیت» است و برای نوشتن درست آن، به «یکا» نیاز داریم. در این فصل با کمیت‌های اصلی و فرعی، کمیت‌های نرده‌ای و برداری و مهم‌تر از همه، روش تبدیل یکا آشنا می‌شویم.</p>
+
+    <div class="grid g2 reveal">
+      <div class="card">
+        <h3><span class="ico">🔍</span>کمیت فیزیکی چیست؟</h3>
+        <p>به هر پدیده‌ای که <b>قابل اندازه‌گیری</b> باشد و بتوان آن را با یک <b>عدد</b> نشان داد، کمیت فیزیکی می‌گویند؛ مانند طول مداد، جرم سنگ، دمای هوا و مدت‌زمان یک مسابقه دو.</p>
+        <div class="tip blue"><span class="t-ico">💡</span><div>هر کمیت = <b>عدد + یکا</b>. مثلاً در «طول مداد ۱۵ سانتی‌متر»، عدد ۱۵ است و «سانتی‌متر» یکای آن. عدد بدون یکا در فیزیک بی‌معنی است!</div></div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">🧩</span>دو دسته‌بندی مهم کمیت‌ها</h3>
+        <p>در جزوه، کمیت‌ها را به دو شکل دسته‌بندی می‌کنیم:</p>
+        <p><b>۱) از نظر یکا:</b> کمیت <b>اصلی</b> (یکای آن مستقل است) و کمیت <b>فرعی</b> (از ترکیب کمیت‌های اصلی ساخته می‌شود).</p>
+        <p><b>۲) از نظر جهت:</b> کمیت <b>نرده‌ای</b> (اسکالر) و کمیت <b>برداری</b>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">🌟 کمیت‌های اصلی در دستگاه SI</h3>
+    <p class="sub-p reveal">کمیت‌هایی که یکاهای آن‌ها <b>مستقل</b> هستند، کمیت اصلی نام دارند. در دستگاه بین‌المللی یکاها (SI) فقط <b>۷ کمیت اصلی</b> وجود دارد:</p>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>کمیت اصلی</th><th>یکای SI</th><th>نماد یکا</th><th>مثال از زندگی روزمره</th></tr>
+      <tr><td>طول</td><td>متر</td><td><span class="sym">m</span></td><td>طول مداد و خط‌کش</td></tr>
+      <tr><td>جرم</td><td>کیلوگرم</td><td><span class="sym">kg</span></td><td>جرم کوله‌پشتی مدرسه</td></tr>
+      <tr><td>زمان</td><td>ثانیه</td><td><span class="sym">s</span></td><td>زمان مسابقه ۱۰۰ متر</td></tr>
+      <tr><td>دما</td><td>کلوین</td><td><span class="sym">K</span></td><td>دمای آب در حال جوش</td></tr>
+      <tr><td>جریان الکتریکی</td><td>آمپر</td><td><span class="sym">A</span></td><td>جریان برق لامپ</td></tr>
+      <tr><td>شدت روشنایی</td><td>کندلا</td><td><span class="sym">cd</span></td><td>روشنایی چراغ‌قوه</td></tr>
+      <tr><td>مقدار ماده</td><td>مول</td><td><span class="sym">mol</span></td><td>مقدار گاز در ظرف</td></tr>
+    </table></div>
+    <div class="tip gold reveal"><span class="t-ico">⭐</span><div><b>نکته امتحانی:</b> حفظ این ۷ کمیت و یکا ضروری است! سوالات رایج امتحان: «یکای جریان الکتریکی چیست؟» (آمپر)، «یکای شدت روشنایی؟» (کندلا) و «کدام گزینه کمیت اصلی نیست؟» (مثلاً مساحت یا سرعت که فرعی‌اند).</div></div>
+
+    <h3 class="sub-h reveal">🧮 کمیت‌های فرعی و فرمول‌های آن‌ها</h3>
+    <p class="sub-p reveal">کمیت‌های فرعی یکای مستقل ندارند و بر اساس <b>روابط ریاضی (ضرب و تقسیم)</b> که بین کمیت‌های اصلی برقرار است، به دست می‌آیند. این فرمول‌ها را در کارت‌های زیر ببین — همان‌هایی که در جزوه‌ات با دست نوشته شده:</p>
+    <div class="grid g3 reveal">
+      <div class="card"><h3><span class="ico">🟦</span>مساحت</h3><div class="formula">A = a × b</div><p class="fnote">طول × عرض — یکا: <span class="sym-l">m²</span></p><span class="typ-chip sc">نرده‌ای</span></div>
+      <div class="card"><h3><span class="ico">🧊</span>حجم</h3><div class="formula">V = a × b × c</div><p class="fnote">یکا: <span class="sym-l">m³</span></p><span class="typ-chip sc">نرده‌ای</span></div>
+      <div class="card"><h3><span class="ico">➡️</span>جابه‌جایی</h3><div class="formula">ΔX = X₂ − X₁</div><p class="fnote">مکان دوم منهای مکان اول — یکا: <span class="sym-l">m</span></p><span class="typ-chip ve">برداری ⬅ جهت دارد</span></div>
+      <div class="card"><h3><span class="ico">⚖️</span>چگالی</h3><div class="formula">ρ = m / V</div><p class="fnote">جرم تقسیم بر حجم — یکا: <span class="sym-l">kg/m³</span></p><span class="typ-chip sc">نرده‌ای</span></div>
+      <div class="card"><h3><span class="ico">🏃</span>سرعت متوسط</h3><div class="formula">v = Δx / Δt</div><p class="fnote">تغییر مکان تقسیم بر زمان — یکا: <span class="sym-l">m/s</span></p><span class="typ-chip ve">برداری ⬅ جهت دارد</span></div>
+      <div class="card"><h3><span class="ico">🚀</span>شتاب</h3><div class="formula">a = ΔV / Δt</div><p class="fnote">تغییر سرعت تقسیم بر تغییر زمان — یکا: <span class="sym-l">m/s²</span></p><span class="typ-chip ve">برداری ⬅ جهت دارد</span></div>
+      <div class="card"><h3><span class="ico">🔥</span>گرما</h3><div class="formula">Q = m × c × Δθ</div><p class="fnote">ظرفیت گرمایی: <span class="sym-l">c = Q/(m·Δθ)</span> بر حسب <span class="sym-l">J/(kg·K)</span></p><span class="typ-chip sc">نرده‌ای</span></div>
+      <div class="card"><h3><span class="ico">💪</span>کار</h3><div class="formula">W = F × d × cosθ</div><p class="fnote">نیرو × جابه‌جایی — <span class="sym-l">1J = N·m</span></p><span class="typ-chip sc">نرده‌ای</span></div>
+    </div>
+
+    <h3 class="sub-h reveal">🧭 نرده‌ای یا برداری؟</h3>
+    <div class="grid g2 reveal">
+      <div class="card" style="border-top:4px solid #10b981">
+        <h3><span class="ico">🟢</span>کمیت نرده‌ای (اسکالر)</h3>
+        <p>برای بیان این کمیت‌ها تنها به یک <b>عدد و یکا</b> نیاز داریم؛ جهت مهم نیست.</p>
+        <div class="chip-row"><span class="chip">طول مداد</span><span class="chip">مدت‌زمان</span><span class="chip">جرم</span><span class="chip">مساحت</span><span class="chip">حجم</span><span class="chip">دما</span><span class="chip">چگالی</span><span class="chip">گرما</span><span class="chip">کار و انرژی</span></div>
+        <div class="tip green"><span class="t-ico">✅</span><div>مثال جزوه: «طول یک مداد»، «مدت‌زمان مسابقه» و «جرم زمین» — همه فقط با عدد و یکا گفته می‌شوند و جهت ندارند.</div></div>
+      </div>
+      <div class="card" style="border-top:4px solid #6366f1">
+        <h3><span class="ico">🔵</span>کمیت برداری</h3>
+        <p>علاوه بر عدد و یکا، <b>جهت</b> هم برای مشخص‌کردن آن‌ها لازم است.</p>
+        <div class="chip-row"><span class="chip">جابه‌جایی</span><span class="chip">سرعت متوسط</span><span class="chip">شتاب</span><span class="chip">نیرو</span></div>
+        <div class="tip blue"><span class="t-ico">🧪</span><div>مثال جزوه: «سرعت متوسط <span class="sym-l">1m</span> به سمت بالا» یا «نیروی ۲ نیوتون به سمت چپ» — اگر جهت را حذف کنی، جمله ناقص است!</div></div>
+      </div>
+    </div>
+    <div class="tip gold reveal"><span class="t-ico">🎯</span><div><b>ترفند تشخیص:</b> اگر توانستی جمله را فقط با عدد و یکا کامل بگویی → نرده‌ای. اگر لازم شد بگویی «به سمت راست/بالا/شمال» → برداری!</div></div>
+  </div>
+</section>
+<!-- ================= SECTION 2: تبدیل یکا ================= -->
+<section id="convert">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">🔄</div><div><div class="kicker">مهارت کلیدی — فصل صفرم و تمرین‌های جزوه</div><h2>تبدیل یکا؛ قدم‌به‌قدم</h2></div></div>
+    <p class="sec-desc reveal">تبدیل یکا یکی از پرتکرارترین سوالات امتحان فیزیک است. این‌جا از پیشوندها شروع می‌کنیم، روش طلایی سه‌قدمی را یاد می‌گیریم و بعد همه‌ی تمرین‌های دست‌نویس جزوه‌ات را قدم‌به‌قدم حل می‌کنیم — از <span class="sym-l">nm²</span> تا <span class="sym-l">Mm²</span> و حجم استوانه!</p>
+
+    <div class="card reveal">
+      <h3><span class="ico">🔤</span>پیشوند چیست و چرا لازم است؟</h3>
+      <p>در فیزیک با اعداد خیلی بزرگ (مثل فاصله زمین تا خورشید) و خیلی کوچک (مثل قطر یک اتم) سروکار داریم. برای اینکه مجبور نباشیم صفرهای زیادی بنویسیم، از <b>پیشوندها</b> استفاده می‌کنیم؛ کلماتی که قبل از یکا می‌آیند و مقدار آن را در <b>توان‌های ۱۰</b> تغییر می‌دهند.</p>
+      <div class="pref-group">
+        <div class="pref-title">🔴 پیشوندهای کوچک‌کننده (کوچک‌تر از یکای اصلی)</div>
+        <div class="pref-row">
+          <span class="pref small">دسی <b>d = ۱۰⁻¹</b></span>
+          <span class="pref small">سانتی <b>c = ۱۰⁻²</b></span>
+          <span class="pref small">میلی <b>m = ۱۰⁻³</b></span>
+          <span class="pref small">میکرو <b>μ = ۱۰⁻⁶</b></span>
+          <span class="pref small">نانو <b>n = ۱۰⁻⁹</b></span>
+          <span class="pref small">پیکو <b>p = ۱۰⁻¹²</b></span>
+        </div>
+      </div>
+      <div class="pref-group">
+        <div class="pref-title">🟢 پیشوندهای بزرگ‌کننده (بزرگ‌تر از یکای اصلی)</div>
+        <div class="pref-row">
+          <span class="pref big">دکا <b>da = ۱۰¹</b></span>
+          <span class="pref big">هکتو <b>h = ۱۰²</b></span>
+          <span class="pref big">کیلو <b>k = ۱۰³</b></span>
+          <span class="pref big">مگا <b>M = ۱۰⁶</b></span>
+          <span class="pref big">گیگا <b>G = ۱۰⁹</b></span>
+          <span class="pref big">ترا <b>T = ۱۰¹²</b></span>
+        </div>
+      </div>
+      <div class="tip gold"><span class="t-ico">⚠️</span><div><b>اشتباه نمره‌بر:</b> حروف کوچک و بزرگ فرق دارند! <span class="sym">m</span> = میلی (۱۰⁻³) ولی <span class="sym">M</span> = مگا (۱۰⁶). همچنین <span class="sym">p</span> = پیکو (۱۰⁻¹۲) ولی <span class="sym">P</span> = پتا (۱۰¹⁵). همیشه به بزرگی و کوچکی حرف دقت کن.</div></div>
+    </div>
+
+    <h3 class="sub-h reveal">🏆 روش طلایی تبدیل در ۳ قدم</h3>
+    <div class="grid g3 reveal">
+      <div class="card"><h3><span class="ico">1️⃣</span>توان‌ها را پیدا کن</h3><p>توان پیشوندِ واحد مبدا و مقصد را از جدول بالا پیدا کن. مثلاً برای تبدیل <span class="sym-l">nm</span> به <span class="sym-l">km</span>: نانو ۱۰⁻۹ و کیلو ۱۰³ است.</p></div>
+      <div class="card"><h3><span class="ico">2️⃣</span>واحدهای توان‌دار را در توان ضرب کن</h3><p>اگر واحد مربع (²) یا مکعب (³) است، توان پیشوند را در توان واحد ضرب کن: <span class="sym-l">(10⁻⁹)² = 10⁻¹⁸</span> و <span class="sym-l">(10⁻²)³ = 10⁻⁶</span>.</p></div>
+      <div class="card"><h3><span class="ico">3️⃣</span>توان‌ها را جمع و تفریق کن</h3><p>توان مبدا را از توان مقصد کم کن (یا برعکس) و توان حاصل را به عدد ضرب کن. توان‌های همنام، جمع می‌شوند: <span class="sym-l">10² × 10⁻³⁰ = 10⁻²⁸</span>.</p></div>
+    </div>
+    <div class="tip blue reveal"><span class="t-ico">🧠</span><div><b>فرمول کلی ذهنی:</b> برای تبدیل، همه‌چیز را به یکای اصلی (متر) برگردان و دوباره به مقصد برو؛ مثل قطار که برای تغییر مسیر، از ایستگاه اصلی می‌گذرد. مثال: <span class="sym-l">nm → m → km</span>. این راه هیچ‌وقت خراب نمی‌شود!</div></div>
+
+    <h3 class="sub-h reveal">✍️ مثال‌های حل‌شده — دقیقاً از جزوه خودت</h3>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۱ <span class="ex-tag">ساده — از تمرین‌های جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">۱ میلی‌متر برابر است با چند متر؟</div>
+        <div class="step"><span class="step-num">۱</span><p>پیشوند «میلی» یعنی ۱۰⁻۳؛ پس هر میلی‌متر، یک‌هزارم متر است.</p></div>
+        <div class="step"><span class="step-num">۲</span><p>بنابراین: <span class="sym-l">1 mm = 1 × 10⁻³ m</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">1 mm = 10⁻³ m</span></div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۲ <span class="ex-tag">دو پیشوند در یک سوال</span></div>
+      <div class="ex-body">
+        <div class="ex-q">۲۰ نانومتر برابر است با چند کیلومتر؟ <b>(همان تمرین دوم جزوه)</b></div>
+        <div class="step"><span class="step-num">۱</span><p>اول نانو را به متر ببر: <span class="sym-l">20 nm = 20 × 10⁻⁹ m = 2 × 10⁻⁸ m</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>حالا متر را به کیلومتر: چون <span class="sym-l">1 km = 10³ m</span>، پس در ۱۰⁻³ ضرب می‌کنیم: <span class="sym-l">2 × 10⁻⁸ × 10⁻³ = 2 × 10⁻¹¹</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">20 nm = 2 × 10⁻¹¹ km</span> — درست همان که در جزوه نوشتی! 👏</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۳ <span class="ex-tag">واحد مربع — سوال «ب» جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">۲۰۰/۱۰۰ نانومتر مربع برابر است با چند مگامتر مربع؟</div>
+        <div class="step"><span class="step-num">۱</span><p>ترفند هوشمندانه جزوه‌ات: فاصله‌ی نانو تا مگا را حساب کن. <span class="sym-l">1 nm = 10⁻⁹ m</span> و <span class="sym-l">1 Mm = 10⁶ m</span>، پس <span class="sym-l">1 nm = 10⁻⁹⁻⁶ = 10⁻¹⁵ Mm</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>چون واحد مربع است، توان را مجدد ضرب کن: <span class="sym-l">(10⁻¹⁵)² = 10⁻³⁰</span></p></div>
+        <div class="step"><span class="step-num">۳</span><p>عدد مسئله را بنویس: <span class="sym-l">200.100 ≈ 2 × 10²</span> سپس: <span class="sym-l">2 × 10² × 10⁻³⁰ = 2 × 10⁻²⁸</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">200.100 nm² ≈ 2 × 10⁻²⁸ Mm²</span> — دقیقاً جواب دست‌نویس خودت! ✅</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۴ <span class="ex-tag">ترکیبی با هندسه — سوال «ج» جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">اگر مساحت مربعی ۴۰۰ کیلومتر مربع باشد، محیط این مربع چند سانتی‌متر است؟</div>
+        <div class="step"><span class="step-num">۱</span><p>اول ضلع مربع: ضلع = جذر مساحت = √۴۰۰ = ۲۰ کیلومتر</p></div>
+        <div class="step"><span class="step-num">۲</span><p>محیط = ۴ × ضلع = ۴ × ۲۰ = ۸۰ کیلومتر</p></div>
+        <div class="step"><span class="step-num">۳</span><p>تبدیل به سانتی‌متر: <span class="sym-l">80 km = 80 × 10³ m = 8 × 10⁴ m</span> و چون هر متر ۱۰² سانتی‌متر است: <span class="sym-l">8 × 10⁴ × 10² = 8 × 10⁶ cm</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">P = 8 × 10⁶ cm</span> (معادل ۸٬۰۰۰٬۰۰۰ سانتی‌متر)</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۵ <span class="ex-tag">حجم استوانه — سوال «د» جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">شعاع استوانه‌ای ۵ سانتی‌متر و ارتفاع آن ۲۰۰۰ میلی‌متر است. حجم این استوانه چند میکرومتر مکعب است؟ (π = ۳)</div>
+        <div class="step"><span class="step-num">۱</span><p>یکاها را یکی کن: <span class="sym-l">h = 2000 mm = 200 cm = 2 × 10² cm</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>حجم را حساب کن: <span class="sym-l">V = πr²h = 3 × 5² × 2 × 10² = 150 × 10² cm³</span> یعنی ۱۵٬۰۰۰ سانتی‌متر مکعب</p></div>
+        <div class="step"><span class="step-num">۳</span><p>هر <span class="sym-l">1 cm = 10⁴ μm</span>، پس هر سانتی‌متر مکعب: <span class="sym-l">(10⁴)³ = 10¹² μm³</span></p></div>
+        <div class="step"><span class="step-num">۴</span><p><span class="sym-l">150 × 10² = 15 × 10³</span> پس: <span class="sym-l">15 × 10³ × 10¹² = 15 × 10¹⁵ μm³</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">V = 15 × 10¹⁵ = 1.5 × 10¹⁶ μm³</span> — باز هم مطابق جزوه‌ات! 🎉</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۶ <span class="ex-tag">مربع بزرگ — از تمرین‌های جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">۱۰۰ مگامتر مربع برابر است با چند متر مربع؟</div>
+        <div class="step"><span class="step-num">۱</span><p>مگا = ۱۰⁶ و چون مربع است: <span class="sym-l">(10⁶)² = 10¹²</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p><span class="sym-l">100 Mm² = 10² × (10⁶)² = 10² × 10¹² = 10¹⁴ m²</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">100 Mm² = 10¹⁴ m²</span> 💡 نکته: اگر مسئله «مکعب» (Mm³) باشد، جواب می‌شود ۱۰² × (۱۰⁶)³ = ۱۰²⁰ m³ — به توان ۲ یا ۳ بودن واحد خیلی دقت کن!</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۷ <span class="ex-tag">چالشی — از تمرین‌های جزوه</span></div>
+      <div class="ex-body">
+        <div class="ex-q">۱۰۰ پیکومتر مربع برابر است با چند ترامتر مربع؟</div>
+        <div class="step"><span class="step-num">۱</span><p>پیکو = ۱۰⁻۱۲ و مربع است: <span class="sym-l">100 pm² = 10² × (10⁻¹²)² = 10² × 10⁻²⁴ = 10⁻²² m²</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>ترا = ۱۰¹۲، پس هر ترامتر مربع: <span class="sym-l">(10¹²)² = 10²⁴ m²</span> و برای تبدیل، توان تفریق می‌شود: <span class="sym-l">10⁻²² ÷ 10²⁴ = 10⁻²²⁻²⁴ = 10⁻⁴⁶</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">100 pm² = 10⁻⁴⁶ Tm²</span> — عددی فوق‌العاده کوچک؛ همان‌قدر که پیکو و ترا از هم دورند!</div>
+      </div>
+    </div>
+
+    <div class="tip pink reveal"><span class="t-ico">🚨</span><div><b>مهم‌ترین اشتباهات رایج در امتحان:</b> ۱) فراموش‌کردن توان ۲ و ۳ در واحدهای مربع و مکعب — «۱m² = ۱۰۰cm²» <b>غلط</b> است، جواب درست ۱۰⁴ است! ۲) قاطی‌کردن m (میلی) و M (مگا). ۳) جمع‌نکردن توان‌ها هنگام ضرب: <span class="sym-l">10² × 10³ = 10⁵</span> نه ۱۰⁶.</div></div>
+
+    <h3 class="sub-h reveal">📋 جدول تبدیل‌های پرکاربرد (مرور ۵ دقیقه‌ای قبل امتحان)</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>طول</th><th>مساحت</th><th>حجم</th></tr>
+      <tr><td><span class="sym-l">1 km = 10³ m</span></td><td><span class="sym-l">1 m² = 10⁴ cm²</span></td><td><span class="sym-l">1 m³ = 10⁶ cm³</span></td></tr>
+      <tr><td><span class="sym-l">1 m = 10² cm = 10³ mm</span></td><td><span class="sym-l">1 km² = 10⁶ m²</span></td><td><span class="sym-l">1 cm³ = 10⁻⁶ m³</span></td></tr>
+      <tr><td><span class="sym-l">1 cm = 10⁴ μm = 10⁷ nm</span></td><td><span class="sym-l">1 cm² = 10⁻⁴ m²</span></td><td><span class="sym-l">1 m³ = 10⁹ mm³</span></td></tr>
+      <tr><td><span class="sym-l">1 m = 10⁶ μm = 10⁹ nm</span></td><td><span class="sym-l">1 m² = 10⁶ mm²</span></td><td><span class="sym-l">1 cm³ = 10¹² μm³</span></td></tr>
+    </table></div>
+  </div>
+</section>
+<!-- ================= SECTION 3: الکتریسیته ساکن ================= -->
+<section id="static">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">⚡</div><div><div class="kicker">فصل یک — صفحات ۷۶ تا ۸۱ جزوه</div><h2>الکتریسیته ساکن و بار الکتریکی</h2></div></div>
+    <p class="sec-desc reveal">در این فصل می‌فهمیم کلمه الکتریسیته از کجا آمد، اتم چه ساختاری دارد، بار مثبت و منفی چگونه به وجود می‌آیند و اینکه وقتی می‌گوییم «اتم خنثی است» دقیقاً چه معنایی دارد.</p>
+
+    <div class="grid g2 reveal">
+      <div class="card">
+        <h3><span class="ico">🏺</span>داستان واژه‌ی الکتریسیته</h3>
+        <p>کلمه‌ی «الکتریسیته» از واژه‌ی <b>«الکترون»</b> گرفته شده است که به معنی <b>«کهربا»</b> است. یونانیان باستان متوجه شدند که وقتی کهربا را به پارچه می‌مالند، خرده‌های کاغذ و اجسام سبک را به خود می‌چسباند. (همان جواب جای خالی جزوه‌ات!)</p>
+        <div class="chip-row"><span class="chip">الکتریسیته ← الکترون</span><span class="chip">الکترون ← کهربا</span></div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">🔀</span>دو نوع الکتریسیته</h3>
+        <p><b>الف) الکتریسیته ساکن (الکتروستاتیک):</b> به مطالعه‌ی بارهای ساکن در اجسام باردار، الکتریسیته ساکن می‌گویند. بارها روی جسم می‌مانند و حرکت نمی‌کنند.</p>
+        <p><b>ب) الکتریسیته جاری:</b> به حرکت پیوسته‌ی بارها در مسیر (مدار) گفته می‌شود؛ همان برقی که لامپ و یخچال را روشن می‌کند.</p>
+      </div>
+    </div>
+
+    <div class="tip blue reveal"><span class="t-ico">🎈</span><div><b>پدیده‌های الکتریسیته ساکن در اطراف ما:</b> موهای سیخ‌شده پس از درآوردن پلیور، چسبیدن بادکنک مالش‌داده به دیوار، جرقه‌ی لباس در تاریکی و حتی رعد و برق — همگی از یک قانون ساده می‌آیند: <b>مالش، الکترون جابه‌جا می‌کند!</b></div></div>
+
+    <h3 class="sub-h reveal">⚛️ بار الکتریکی از کجا می‌آید؟ (صفحه ۷۹ جزوه)</h3>
+    <p class="sub-p reveal">همه‌ی اجسام اطراف ما از ذرات بسیار ریزی به نام <b>اتم</b> ساخته شده‌اند. هر اتم هم خودش از سه ذره‌ی اصلی ساخته شده است. مدل اتم را در انیمیشن زیر ببین:</p>
+    <div class="card reveal">
+      <div class="atom-stage">
+        <div class="atom" aria-hidden="true">
+          <div class="orbit-tilt t1"><div class="spin"><div class="electron"></div></div></div>
+          <div class="orbit-tilt t2"><div class="spin"><div class="electron"></div></div></div>
+          <div class="orbit-tilt t3"><div class="spin"><div class="electron"></div></div></div>
+          <div class="nucleus">p⁺ n⁰</div>
+        </div>
+        <div>
+          <p><b>ساختار اتم:</b></p>
+          <p>🔸 <b>پروتون و نوترون</b> در مرکز اتم کنار هم قرار دارند. دانشمندان مرکز اتم را <b>«هسته»</b> می‌نامند.</p>
+          <p>🔸 <b>الکترون‌ها</b> با سرعت فراوان در فضای دور از هسته حرکت می‌کنند. به فضا و مسیر حرکت الکترون‌ها <b>«اوربیتال»</b> می‌گویند.</p>
+          <p>🔸 بیشتر از <b>۱۰۰ عنصر</b> در جدول تناوبی وجود دارد و چیزی که عناصر را از هم متمایز می‌کند، <b>تعداد پروتون‌های</b> آن‌هاست. (جواب جای خالی جزوه!)</p>
+          <div class="legend">
+            <span class="lg p"><span class="dot"></span>پروتون: بار ۱+</span>
+            <span class="lg n"><span class="dot"></span>نوترون: بدون بار</span>
+            <span class="lg e"><span class="dot"></span>الکترون: بار ۱−</span>
+          </div>
+        </div>
+      </div>
+      <div class="tbl-wrap" style="margin-top:18px"><table>
+        <tr><th>ذره</th><th>بار الکتریکی نسبی</th><th>جرم نسبی</th><th>محل در اتم</th></tr>
+        <tr><td>الکترون</td><td>۱−</td><td>خیلی کوچک (نسبت به پروتون ≈ ۰)</td><td>دور هسته — اوربیتال</td></tr>
+        <tr><td>پروتون</td><td>۱+</td><td>۱</td><td>داخل هسته</td></tr>
+        <tr><td>نوترون</td><td>۰ (خنثی)</td><td>۱</td><td>داخل هسته</td></tr>
+      </table></div>
+    </div>
+
+    <h3 class="sub-h reveal">🔋 مفهوم بار الکتریکی (صفحه ۸۰ جزوه)</h3>
+    <p class="sub-p reveal">اجسام در حالت عادی از حیث الکتریکی <b>خنثی</b> هستند؛ یعنی تعداد بارهای مثبت و منفی آن‌ها برابر است. حالا ببین چه اتفاقی می‌افتد اگر جسمی الکترون بگیرد یا از دست بدهد:</p>
+    <div class="grid g3 reveal">
+      <div class="card" style="border-top:4px solid #94a3b8">
+        <h3><span class="ico">⚪</span>جسم خنثی</h3>
+        <p>تعداد <b>پروتون‌ها = تعداد الکترون‌ها</b>. اثر بارهای مثبت و منفی یکدیگر را خنثی می‌کند و مجموع بار صفر است. بیشتر اجسام اطراف ما در حالت عادی خنثی‌اند.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #ef4444">
+        <h3><span class="ico">🔴</span>بار منفی</h3>
+        <p>اگر جسمی <b>الکترون اضافی دریافت کند</b> (الکترون‌هایش بیشتر از پروتون‌هایش شود)، دارای بار <b>منفی</b> می‌شود. مثل شانه‌ی پلاستیکی که به موی خشک مالیده می‌شود.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #f59e0b">
+        <h3><span class="ico">🟠</span>بار مثبت</h3>
+        <p>اگر جسمی <b>الکترون از دست بدهد</b> (پروتون‌هایش بیشتر شود)، دارای بار <b>مثبت</b> می‌شود. مثل میله‌ی شیشه‌ای که با پارچه‌ی ابریشمی مالش داده می‌شود.</p>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">⭐ پاسخ «پرسش ۱» جزوه <span class="ex-tag">صفحه ۸۰</span></div>
+      <div class="ex-body">
+        <div class="ex-q">وقتی می‌گوییم اتم در حالت عادی از نظر بار الکتریکی خنثی است، چه معنایی دارد؟</div>
+        <div class="step"><span class="step-num">۱</span><p>در اتم، پروتون‌ها بار مثبت (۱+) و الکترون‌ها بار منفی (۱−) دارند.</p></div>
+        <div class="step"><span class="step-num">۲</span><p>در حالت عادی، <b>تعداد پروتون‌ها با تعداد الکترون‌ها برابر</b> است؛ پس بارهای مثبت و منفی اثر یکدیگر را کاملاً خنثی می‌کنند.</p></div>
+        <div class="answer">✔ نتیجه: مجموع بار الکتریکی اتم صفر است و اتم خنثی به نظر می‌رسد.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">🧪 آزمایش‌های کلاسی جزوه (صفحات ۷۷ و ۷۹)</h3>
+    <p class="sub-p reveal">در جزوه‌ات سه آزمایش با دست‌خط علامت‌گذاری شده. اول خودت به «چرا؟» فکر کن، بعد روی دکمه بزن تا پاسخ باز شود:</p>
+    <div class="grid g3 reveal">
+      <div class="card exp-card">
+        <h3><span class="ico">📺</span>آزمایش ۱ — پارچه و تلویزیون</h3>
+        <p>وقتی با <b>پارچه‌ی خشک و تمیز</b> صفحه‌ی تلویزیون را تمیز می‌کنیم، پرزهای پارچه به صفحه می‌چسبند. چرا؟</p>
+        <div class="exp-scene scene-tv" aria-hidden="true">
+          <div class="tv-screen">📺</div>
+          <span class="lint l1">✦</span><span class="lint l2">✦</span><span class="lint l3">✦</span>
+          <div class="exp-label">پرزها ← صفحه‌ی باردار</div>
+        </div>
+        <button class="btn btn-ghost why-btn" type="button">چرا؟ 🤔</button>
+        <div class="why-body"><b>پاسخ جزوه:</b> مالش پارچه با شیشه‌ی صفحه، <b>الکترون‌ها را جابه‌جا می‌کند</b> و دو سطح بارهای <b>ناهمنام</b> پیدا می‌کنند. بارهای ناهمنام یکدیگر را <b>جذب</b> می‌کنند؛ برای همین پرزهای سبکِ پارچه به صفحه چسبیده می‌مانند. (الکتریسیته ساکن در عمل!)</div>
+      </div>
+      <div class="card exp-card">
+        <h3><span class="ico">💧</span>آزمایش ۲ — شانه و باریکه‌ی آب</h3>
+        <p>شانه‌ی پلاستیکی را به موی خشک می‌مالیم و به باریکه‌ی باریک آب نزدیک می‌کنیم؛ باریکه به سمت شانه <b>خم می‌شود</b>. چرا؟</p>
+        <div class="exp-scene scene-water" aria-hidden="true">
+          <div class="faucet">🚰</div>
+          <div class="stream"></div>
+          <div class="comb">🪮</div>
+          <div class="exp-label">باریکه‌ی آب خم می‌شود</div>
+        </div>
+        <button class="btn btn-ghost why-btn" type="button">چرا؟ 🤔</button>
+        <div class="why-body"><b>پاسخ جزوه:</b> شانه با مالش با مو <b>بار الکتریکی پیدا می‌کند</b>. مولکول‌های آب در میدان بار شانه، <b>القای الکتریکی</b> می‌شوند: سمت آن‌ها که به شانه نزدیک‌تر است بار <b>ناهمنام</b> با شانه می‌گیرد و جذب شانه می‌شود — نتیجه، خم‌شدن باریکه‌ی آب به سمت شانه است.</div>
+      </div>
+      <div class="card exp-card">
+        <h3><span class="ico">📄</span>آزمایش ۳ — کاغذ و دیوار</h3>
+        <p>یک <b>ورق کاغذ تا‌خورده و صاف</b> را به دیوار می‌چسبانیم و چند بار با کف دست روی آن می‌کشیم؛ کاغذ به دیوار می‌چسبد. چرا؟</p>
+        <div class="exp-scene scene-paper" aria-hidden="true">
+          <div class="wall-side"></div>
+          <div class="paper">📄</div>
+          <div class="hand">🖐️</div>
+          <div class="exp-label">کاغذ به دیوار می‌چسبد</div>
+        </div>
+        <button class="btn btn-ghost why-btn" type="button">چرا؟ 🤔</button>
+        <div class="why-body"><b>پاسخ جزوه:</b> مالش دست با کاغذ، کاغذ را <b>باردار</b> می‌کند. بار کاغذ، در سطح دیوار <b>بار القایی ناهمنام</b> ایجاد می‌کند و این دو سطح بارِ ناهمنام یکدیگر را جذب می‌کنند — کاغذ مثل آهنربا به دیوار می‌چسبد. حتی بعد از برداشتن دست هم کمی می‌ماند!</div>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">🔬 دسته‌بندی اجسام از نظر الکتریکی (صفحه ۸۱ جزوه)</h3>
+    <p class="sub-p reveal">اجسام را از نظر عبور بار الکتریکی به چهار دسته تقسیم می‌کنند. کلید ماجرا یک چیز است: <b>الکترون آزاد</b> داشتن یا نداشتن!</p>
+    <div class="card reveal">
+      <h3><span class="ico">🔑</span>الکترون آزاد چیست؟</h3>
+      <p>به الکترون‌هایی که در <b>بیرونی‌ترین لایه‌ی انرژی</b> اتم قرار دارند و به‌راحتی می‌توانند از اتمی به اتم دیگر جابه‌جا شوند، <b>الکترون آزاد</b> می‌گویند. هرچه جسم الکترون آزاد بیشتری داشته باشد، بار الکتریکی را بهتر از خود عبور می‌دهد.</p>
+      <div class="tip blue"><span class="t-ico">⚡</span><div>در فلزها (مثل مس و نقره) الکترون‌های بیرونی تقریباً آزادند و در کل جسم پخش می‌شوند؛ به همین دلیل همه‌ی فلزات، رسانا هستند.</div></div>
+    </div>
+    <div class="grid g2 reveal">
+      <div class="card" style="border-top:4px solid #10b981">
+        <h3><span class="ico">🟢</span>رسانا</h3>
+        <p>تعداد <b>زیادی الکترون آزاد</b> دارد. اگر به جسم رسانا بار بدهیم، بار <b>سریعاً در تمام جسم توزیع</b> می‌شود. مانند فلزها؛ بهترین رسانا: <b>نقره</b> — و بعد از آن مس و آلومینیوم.</p>
+        <div class="chip-row"><span class="chip">نقره 🥇</span><span class="chip">مس</span><span class="chip">آلومینیوم</span><span class="chip">همه‌ی فلزات</span></div>
+      </div>
+      <div class="card" style="border-top:4px solid #ef4444">
+        <h3><span class="ico">🔴</span>نارسانا (عایق)</h3>
+        <p><b>الکترون آزاد ندارد</b>. اگر به آن بار بدهیم، بار <b>در همان محل باقی می‌ماند</b> و پخش نمی‌شود. مانند چوب، پلاستیک، شیشه و کاغذ.</p>
+        <div class="chip-row"><span class="chip">چوب</span><span class="chip">پلاستیک</span><span class="chip">شیشه</span><span class="chip">کاغذ</span><span class="chip">هوای خشک</span></div>
+      </div>
+      <div class="card" style="border-top:4px solid #f59e0b">
+        <h3><span class="ico">🟠</span>نیم‌رسانا</h3>
+        <p>از نظر رسانایی، <b>بین رسانا و نارسانا</b> است؛ در شرایط خاص (مثل افزودن ناخالصی یا تغییر دما) رسانایی‌اش کنترل می‌شود. قلب صنعت الکترونیک!</p>
+        <div class="chip-row"><span class="chip">ترانزیستور</span><span class="chip">دیود LED</span><span class="chip">سلول خورشیدی</span><span class="chip">تراشه‌های الکترونیکی</span></div>
+        <div class="tip green"><span class="t-ico">📝</span><div>این موارد، پاسخِ «فعالیت ۱» جزوه است: تحقیق درباره‌ی ویژگی‌ها و کاربردهای نیم‌رساناها.</div></div>
+      </div>
+      <div class="card" style="border-top:4px solid #8b5cf6">
+        <h3><span class="ico">🟣</span>ابررسانا</h3>
+        <p>موادی که در <b>دماهای بسیار پایین</b>، مقاومت الکتریکی‌شان تقریباً <b>صفر</b> می‌شود و بار را بدون اتلاف از خود عبور می‌دهند. کاربرد: مغز‌های قدرتمند (آهنرباهای ابررسانا در MRI و قطارهای مگلو).</p>
+        <div class="chip-row"><span class="chip">آهنربای MRI</span><span class="chip">قطار مگلو</span></div>
+      </div>
+    </div>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>دسته</th><th>الکترون آزاد</th><th>رفتار بار</th><th>مثال</th><th>کاربرد نمونه</th></tr>
+      <tr><td>🟢 رسانا</td><td>فراوان</td><td>سریع پخش می‌شود</td><td>نقره، مس، فلزها</td><td>سیم‌کشی برق</td></tr>
+      <tr><td>🔴 نارسانا</td><td>ندارد</td><td>در همان محل می‌ماند</td><td>چوب، پلاستیک، شیشه</td><td>روکش کابل برق</td></tr>
+      <tr><td>🟠 نیم‌رسانا</td><td> کم و کنترل‌شده</td><td>در شرایط خاص عبور می‌کند</td><td>سیلیسیم</td><td>ترانزیستور، LED، سلول خورشیدی</td></tr>
+      <tr><td>🟣 ابررسانا</td><td>بی‌مقاومت در سرمای شدید</td><td>بدون اتلاف عبور می‌کند</td><td>برخی آلیاژها در دمای بسیار پایین</td><td>آهنرباهای MRI</td></tr>
+    </table></div>
+    <div class="tip gold reveal"><span class="t-ico">⭐</span><div><b>نکته‌ی امتحانی جزوه:</b> برای باردار کردن اجسام <b>نارسانا (عایق)</b> از راه مالش استفاده می‌کنیم، چون بار در همان‌جا می‌ماند و خالی نمی‌شود. بار روی جسم رسانا (مثل میله‌ی فلزیِ در دست) فوراً از طریق بدن به زمین می‌رود — مگر اینکه روی <b>پایه‌ی عایق</b> قرار داشته باشد.</div></div>
+  </div>
+</section>
+<!-- ================= SECTION 3.5: روش‌های باردار کردن ================= -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<marker id="arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+</defs></svg>
+<section id="charging">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">🔋</div><div><div class="kicker">فصل دوم — صفحات ۸۱ تا ۸۳ جزوه</div><h2>روش‌های باردار کردن اجسام</h2></div></div>
+    <p class="sec-desc reveal">حالا که می‌دانیم بار الکتریکی یعنی چه، سوال اصلی این است: یک جسم خنثی را چطور باردار کنیم؟ جزوه <b>سه روش</b> را معرفی می‌کند: مالش، تماس و القا. هر سه را این‌جا با انیمیشن، قدم‌به‌قدم و با همان نکته‌های دست‌نویس جزوه یاد بگیر.</p>
+
+    <div class="grid g3 reveal">
+      <div class="card" style="border-top:4px solid #f59e0b"><h3><span class="ico">🧼</span>۱) مالش</h3><p>دو جسم <b>متفاوت</b> را به هم می‌مالیم تا الکترون‌ها از یکی به دیگری <b>منتقل</b> شوند. بهترین روش برای <b>عایق‌ها</b> (پلاستیک، شیشه، بادکنک).</p></div>
+      <div class="card" style="border-top:4px solid #06b6d4"><h3><span class="ico">🤝</span>۲) تماس</h3><p>جسم باردار را با جسم خنثی <b>تماس</b> می‌دهیم؛ بخشی از بار منتقل می‌شود و جسم خنثی بارِ <b>هم‌نام</b> با جسم باردارکننده پیدا می‌کند.</p></div>
+      <div class="card" style="border-top:4px solid #8b5cf6"><h3><span class="ico">🧲</span>۳) القا</h3><p>جسم باردار را فقط <b>نزدیک</b> می‌بریم (بدون تماس!)؛ بارهای داخل جسم خنثی <b>جابه‌جا</b> می‌شوند. این روش در <b>رساناها</b> عالی و در نارساناها ضعیف جواب می‌دهد.</p></div>
+    </div>
+
+    <h3 class="sub-h reveal">🧼 الف) روش مالش — الکترون‌ها تولید نمی‌شوند، فقط جابه‌جا می‌شوند!</h3>
+    <div class="card reveal">
+      <p>در مالش دو جسم به یکدیگر، الکترون‌ها <b>نه تولید می‌شوند و نه از بین می‌روند</b>؛ بلکه صرفاً <b>از جسمی به جسم دیگر منتقل</b> می‌شوند — این همان <b>قانون پایستگی بار الکتریکی</b> است: مجموع بار دو جسم همیشه صفر می‌ماند. خودت امتحان کن:</p>
+      <div class="friction-stage" id="fricStage">
+        <div class="fbox glass">
+          <div class="f-emoji">🥛</div>
+          <div class="f-name">میله‌ی شیشه‌ای</div>
+          <div class="f-sign" id="glassSign">خنثی</div>
+        </div>
+        <div class="fmid" id="fricMid"><span class="edot d1"></span><span class="edot d2"></span><span class="edot d3"></span><div class="fric-hint" id="fricHint">شیشه ✖ پشم</div></div>
+        <div class="fbox cloth">
+          <div class="f-emoji">🧶</div>
+          <div class="f-name">پارچه‌ی پشمی</div>
+          <div class="f-sign" id="clothSign">خنثی</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:14px"><button class="btn btn-main" id="fricBtn" type="button">🫳 مالش بده!</button></div>
+      <div class="calc-out" id="fricOut">شیشه در جدول سری الکتریکی بالاتر از پشم است؛ پس در مالش <b>الکترون از دست می‌دهد</b> و مثبت می‌شود، و پشم الکترون می‌گیرد و منفی می‌شود.</div>
+    </div>
+    <div class="grid g2 reveal">
+      <div class="tip blue" style="margin:0"><span class="t-ico">⚖️</span><div><b>نکته‌ی جرم (دست‌نویس جزوه):</b> اگر جسمی را با مالش باردار کنیم، جرم جسمی که <b>الکترون از دست داده</b>، کم می‌شود و جرم جسمی که <b>الکترون گرفته</b>، زیاد می‌شود! البته این تغییر آن‌قدر ناچیز است که با هیچ ترازویی حس نمی‌شود.</div></div>
+      <div class="tip pink" style="margin:0"><span class="t-ico">🚨</span><div><b>اشتباه رایج:</b> جسمی که بار مثبت دارد، الکترون <b>از دست داده</b> است؛ <b>پروتون اضافه نگرفته!</b> پروتون‌ها در هسته محبوس‌اند و در مالش یا تماس جابه‌جا نمی‌شوند — فقط الکترون‌ها سیارند.</div></div>
+    </div>
+
+    <div class="grid g2 reveal" style="margin-top:18px">
+      <div class="example" style="margin:0">
+        <div class="ex-head">⭐ پاسخ «پرسش ۱» جزوه <span class="ex-tag">صفحه ۸۲</span></div>
+        <div class="ex-body">
+          <div class="ex-q">وقتی می‌گوییم جسمی دارای بار منفی است، یعنی چه؟</div>
+          <div class="step"><span class="step-num">۱</span><p>یعنی تعداد <b>الکترون‌های آن بیشتر از پروتون‌هایش</b> شده است.</p></div>
+          <div class="step"><span class="step-num">۲</span><p>به بیان دیگر، این جسم به اندازه‌ی بارش <b>الکترون اضافه دریافت کرده</b> است.</p></div>
+          <div class="answer">✔ جسمِ دارای بار منفی = الکترون اضافه گرفته است.</div>
+        </div>
+      </div>
+      <div class="example" style="margin:0">
+        <div class="ex-head">⭐ پاسخ «پرسش ۲» جزوه <span class="ex-tag">صفحه ۸۲</span></div>
+        <div class="ex-body">
+          <div class="ex-q">وقتی می‌گوییم جسمی دارای بار مثبت است، یعنی چه؟</div>
+          <div class="step"><span class="step-num">۱</span><p>یعنی تعداد <b>پروتون‌هایش بیشتر از الکترون‌هایش</b> است.</p></div>
+          <div class="step"><span class="step-num">۲</span><p>یعنی این جسم به اندازه‌ی بارش <b>الکترون از دست داده</b> است.</p></div>
+          <div class="answer">✔ جسمِ دارای بار مثبت = الکترون از دست داده است.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip gold reveal"><span class="t-ico">🔒</span><div><b>سوال جزوه: چرا در اثر مالش فقط الکترون‌ها جابه‌جا می‌شوند، ولی پروتون‌ها کنده نمی‌شوند؟</b> چون پروتون‌ها در <b>هسته</b> به‌شدت محکم به هم چسبیده‌اند و جدا کردنشان انرژی بسیار زیادی می‌خواهد؛ اما الکترون‌های لایه‌ی بیرونی اتم، آزادند و به‌راحتی جدا می‌شوند و جابه‌جا می‌گردند.</div></div>
+
+    <h3 class="sub-h reveal">🤝 ب) روش تماس — باردار شدن با لمس</h3>
+    <div class="card reveal">
+      <p>در این روش، جسم باردار را با جسم خنثی <b>تماس</b> می‌دهیم. بخشی از بار جسم باردار به جسم خنثی منتقل می‌شود و جسم باردارشونده بارِ <b>هم‌نام با بار جسم باردارکننده</b> پیدا می‌کند. مثلاً اگر میله‌ی مثبت به کره‌ی خنثی بخورد، کره هم مثبت می‌شود. مراحل را ببین:</p>
+      <div class="stepper" id="stTouch">
+        <div class="step-scenes">
+          <div class="step-scene cur">
+            <svg viewBox="0 0 380 170" class="scn">
+              <rect x="160" y="118" width="8" height="26" fill="#94a3b8"/><rect x="142" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+              <circle cx="164" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+              <text x="164" y="90" text-anchor="middle" class="scn-t">خنثی</text>
+              <rect x="248" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+              <text x="266" y="89" class="sg plus">+</text><text x="286" y="89" class="sg plus">+</text><text x="306" y="89" class="sg plus">+</text><text x="326" y="89" class="sg plus">+</text>
+              <text x="298" y="60" text-anchor="middle" class="scn-lbl">میله‌ی باردار مثبت</text>
+            </svg>
+            <p class="scene-cap">۱) کره‌ی رسانا خنثی روی پایه‌ی عایق است؛ میله‌ی مثبت را نزدیک می‌کنیم (هنوز تماس ندارند!).</p>
+          </div>
+          <div class="step-scene">
+            <svg viewBox="0 0 380 170" class="scn">
+              <rect x="130" y="118" width="8" height="26" fill="#94a3b8"/><rect x="112" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+              <circle cx="134" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+              <rect x="196" y="118" width="8" height="26" fill="#94a3b8"/><rect x="178" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+              <circle cx="200" cy="84" r="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+              <text x="134" y="90" text-anchor="middle" class="scn-t" fill="#b45309">+ +</text>
+              <text x="200" y="90" text-anchor="middle" class="scn-t" fill="#b45309">+ +</text>
+              <path d="M228 84 L276 84" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrP)" fill="none"/>
+              <rect x="286" y="74" width="80" height="20" rx="10" fill="#f59e0b"/>
+              <text x="302" y="89" class="sg plus">+</text><text x="322" y="89" class="sg plus">+</text><text x="342" y="89" class="sg plus">+</text>
+              <text x="252" y="62" text-anchor="middle" class="scn-lbl">الکترون‌ها به سمت میله</text>
+            </svg>
+            <p class="scene-cap">۲) دو کره در تماس‌اند؛ میله‌ی مثبت الکترون‌های آزاد هر دو کره را به سمت خود می‌کشد — سمت راست بار منفی و سمت چپ بار مثبت پیدا می‌کند (القا).</p>
+          </div>
+          <div class="step-scene">
+            <svg viewBox="0 0 380 170" class="scn">
+              <rect x="150" y="118" width="8" height="26" fill="#94a3b8"/><rect x="132" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+              <circle cx="154" cy="84" r="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+              <text x="154" y="90" text-anchor="middle" class="scn-t" fill="#b45309">+ +</text>
+              <rect x="216" y="118" width="8" height="26" fill="#94a3b8"/><rect x="198" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+              <circle cx="220" cy="84" r="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+              <text x="220" y="90" text-anchor="middle" class="scn-t" fill="#b45309">+ +</text>
+              <path d="M276 84 L316 84" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrP)" fill="none"/>
+              <rect x="240" y="66" width="70" height="18" rx="9" fill="#fbbf24" opacity=".55"/>
+              <text x="296" y="130" text-anchor="middle" class="scn-lbl">قطع تماس در حضور میله</text>
+              <text x="60" y="150" text-anchor="middle" class="scn-lbl"></text>
+            </svg>
+            <p class="scene-cap">۳) در حضور میله، دو کره را از هم جدا می‌کنیم — حالا هر کره بارِ مثبتِ (هم‌نام با میله) نگه داشته است! این همان «القای دو کره» است.</p>
+          </div>
+        </div>
+        <div class="step-info"></div>
+        <div class="step-btns">
+          <button class="btn btn-ghost st-prev" type="button">→ مرحله‌ی قبل</button>
+          <span class="step-dots"></span>
+          <button class="btn btn-main st-next" type="button">مرحله‌ی بعد ←</button>
+        </div>
+      </div>
+      <div class="tip blue"><span class="t-ico">🤝</span><div>در <b>تماسِ مستقیم</b> (بدون نزدیکی میله): وقتی جسم باردار به جسم خنثی بخورد، بارِ هم‌نام با آن منتقل می‌شود — مثلاً میله‌ی منفی، الکترون‌های اضافه‌اش را با کره‌ی خنثی «تقسیم» می‌کند و هر دو منفی می‌شوند.</div></div>
+    </div>
+
+    <h3 class="sub-h reveal">🧲 ج) روش القا — باردار کردن بدون تماس!</h3>
+    <p class="sub-p reveal">در القا، جسم باردار را <b>نزدیک</b> جسم خنثی می‌بریم و اجازه می‌دهیم بارهای داخل آن خودشان جابه‌جا شوند. دو حالت کلاسیک دارد که هر دو در جزوه با شکل کشیده شده‌اند:</p>
+
+    <div class="grid g2 reveal">
+      <div class="card lab-card">
+        <h3><span class="ico">⚪</span>القای دو کره <span class="typ-chip ve">با میله‌ی مثبت</span></h3>
+        <div class="stepper" id="stInd2">
+          <div class="step-scenes">
+            <div class="step-scene cur">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="92" y="118" width="8" height="26" fill="#94a3b8"/><rect x="74" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="96" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <rect x="182" y="118" width="8" height="26" fill="#94a3b8"/><rect x="164" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="186" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="96" y="90" text-anchor="middle" class="scn-t">خنثی</text><text x="186" y="90" text-anchor="middle" class="scn-t">خنثی</text>
+              </svg>
+              <p class="scene-cap">۱) دو کره‌ی رسانای یکسان در تماس با هم، روی پایه‌های عایق — هر دو خنثی‌اند (تعداد + و − برابر).</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="80" y="118" width="8" height="26" fill="#94a3b8"/><rect x="62" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="84" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <rect x="170" y="118" width="8" height="26" fill="#94a3b8"/><rect x="152" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="174" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="62" y="78" text-anchor="middle" class="sg plus">+</text><text x="62" y="100" text-anchor="middle" class="sg plus">+</text>
+                <text x="106" y="78" text-anchor="middle" class="sg plus">+</text><text x="106" y="100" text-anchor="middle" class="sg plus">+</text>
+                <text x="152" y="78" text-anchor="middle" class="sg minus">−</text><text x="152" y="100" text-anchor="middle" class="sg minus">−</text>
+                <text x="196" y="78" text-anchor="middle" class="sg minus">−</text><text x="196" y="100" text-anchor="middle" class="sg minus">−</text>
+                <path d="M110 60 Q 140 40 170 50" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrP)" fill="none"/>
+                <rect x="248" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+                <text x="266" y="89" class="sg plus">+</text><text x="286" y="89" class="sg plus">+</text><text x="306" y="89" class="sg plus">+</text><text x="326" y="89" class="sg plus">+</text>
+                <text x="298" y="58" text-anchor="middle" class="scn-lbl">میله‌ی مثبت</text>
+                <text x="140" y="34" text-anchor="middle" class="scn-lbl">الکترون‌ها ← سمت میله</text>
+              </svg>
+              <p class="scene-cap">۲) میله‌ی مثبت را نزدیک می‌کنیم؛ الکترون‌های آزادِ هر دو کره جذب میله می‌شوند و به سمت راست می‌روند: کره‌ی نزدیک بار <b>منفی (ناهمنام با میله)</b> و کره‌ی دور بار <b>مثبت (همنام با میله)</b> می‌گیرد. مجموع بارها هنوز صفر است!</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="62" y="118" width="8" height="26" fill="#94a3b8"/><rect x="44" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="66" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <rect x="196" y="118" width="8" height="26" fill="#94a3b8"/><rect x="178" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="200" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="44" y="78" text-anchor="middle" class="sg plus">+</text><text x="44" y="100" text-anchor="middle" class="sg plus">+</text>
+                <text x="88" y="78" text-anchor="middle" class="sg plus">+</text><text x="88" y="100" text-anchor="middle" class="sg plus">+</text>
+                <text x="178" y="78" text-anchor="middle" class="sg minus">−</text><text x="178" y="100" text-anchor="middle" class="sg minus">−</text>
+                <text x="222" y="78" text-anchor="middle" class="sg minus">−</text><text x="222" y="100" text-anchor="middle" class="sg minus">−</text>
+                <path d="M138 84 L162 84" stroke="#64748b" stroke-width="2" marker-end="url(#arrB)" fill="none"/>
+                <path d="M162 96 L138 96" stroke="#64748b" stroke-width="2" marker-end="url(#arrB)" fill="none"/>
+                <rect x="272" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+                <text x="290" y="89" class="sg plus">+</text><text x="310" y="89" class="sg plus">+</text><text x="330" y="89" class="sg plus">+</text><text x="350" y="89" class="sg plus">+</text>
+                <text x="322" y="58" text-anchor="middle" class="scn-lbl">میله هنوز نزدیک است</text>
+              </svg>
+              <p class="scene-cap">۳) در حضور میله، دو کره را از هم جدا می‌کنیم — بارها روی هر کره «قفل» می‌شوند. (اگر میله را برداریم و کره‌ها چسبیده باشند، دوباره خنثی می‌شوند!)</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="92" y="118" width="8" height="26" fill="#94a3b8"/><rect x="74" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="96" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <rect x="182" y="118" width="8" height="26" fill="#94a3b8"/><rect x="164" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="186" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="96" y="90" text-anchor="middle" class="sg plus" font-size="17">+ +</text>
+                <text x="186" y="90" text-anchor="middle" class="sg minus" font-size="17">− −</text>
+                <text x="96" y="36" text-anchor="middle" class="scn-lbl">کره‌ی دور: مثبت</text>
+                <text x="266" y="36" text-anchor="middle" class="scn-lbl">کره‌ی نزدیک: منفی</text>
+                <path d="M330 84 Q 356 60 352 40" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrB)" fill="none"/>
+                <text x="348" y="26" text-anchor="middle" class="scn-lbl">میله دور شد</text>
+              </svg>
+              <p class="scene-cap">۴) میله را دور می‌بریم: کره‌ی نزدیک با بار <b>منفی</b> و کره‌ی دور با بار <b>مثبت</b> باردار مانده‌اند — دو کره هم‌اندازه و ناهمنام باردار شده‌اند، بدون اینکه میله به هیچ‌کدام دست بخورد! ✨</p>
+            </div>
+          </div>
+          <div class="step-info"></div>
+          <div class="step-btns">
+            <button class="btn btn-ghost st-prev" type="button">→ مرحله‌ی قبل</button>
+            <span class="step-dots"></span>
+            <button class="btn btn-main st-next" type="button">مرحله‌ی بعد ←</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <h3><span class="ico">🌍</span>القای یک کره <span class="typ-chip ve">با اتصال به زمین</span></h3>
+        <div class="stepper" id="stInd1">
+          <div class="step-scenes">
+            <div class="step-scene cur">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="186" y="118" width="8" height="26" fill="#94a3b8"/><rect x="168" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="190" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="190" y="90" text-anchor="middle" class="scn-t">خنثی</text>
+              </svg>
+              <p class="scene-cap">۱) یک کره‌ی رسانا روی پایه‌ی عایق — خنثی است.</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="186" y="118" width="8" height="26" fill="#94a3b8"/><rect x="168" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="190" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="172" y="78" text-anchor="middle" class="sg minus">−</text><text x="172" y="102" text-anchor="middle" class="sg minus">−</text>
+                <text x="210" y="78" text-anchor="middle" class="sg plus">+</text><text x="210" y="102" text-anchor="middle" class="sg plus">+</text>
+                <rect x="252" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+                <text x="270" y="89" class="sg plus">+</text><text x="290" y="89" class="sg plus">+</text><text x="310" y="89" class="sg plus">+</text><text x="330" y="89" class="sg plus">+</text>
+                <text x="302" y="58" text-anchor="middle" class="scn-lbl">میله‌ی مثبت</text>
+                <text x="190" y="34" text-anchor="middle" class="scn-lbl">سمت نزدیک − و سمت دور +</text>
+              </svg>
+              <p class="scene-cap">۲) میله‌ی مثبت را نزدیک می‌کنیم؛ الکترون‌های کره به سمت میله کشیده می‌شوند: سمت نزدیک <b>منفی</b> و سمت دور <b>مثبت</b> می‌شود.</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="186" y="118" width="8" height="26" fill="#94a3b8"/><rect x="168" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="190" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="190" y="80" text-anchor="middle" class="sg minus" font-size="16">− − −</text>
+                <path d="M80 60 L180 74" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrB)" fill="none"/>
+                <path d="M80 100 L180 92" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrB)" fill="none"/>
+                <text x="96" y="46" text-anchor="middle" class="scn-lbl">الکترون از زمین</text>
+                <path d="M80 118 L80 140" stroke="#334155" stroke-width="2.5" fill="none"/>
+                <path d="M64 140 L96 140" stroke="#334155" stroke-width="3" fill="none"/>
+                <path d="M70 147 L90 147" stroke="#334155" stroke-width="3" fill="none"/>
+                <path d="M76 154 L84 154" stroke="#334155" stroke-width="3" fill="none"/>
+                <rect x="252" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+                <text x="270" y="89" class="sg plus">+</text><text x="290" y="89" class="sg plus">+</text><text x="310" y="89" class="sg plus">+</text><text x="330" y="89" class="sg plus">+</text>
+                <text x="302" y="58" text-anchor="middle" class="scn-lbl">میله‌ی مثبت</text>
+              </svg>
+              <p class="scene-cap">۳) کره را با سیم به <b>زمین</b> وصل می‌کنیم؛ الکترون‌ها از زمین وارد کره می‌شوند و بار مثبتِ سمت دور را خنثی می‌کنند — کره در مجموع <b>منفی</b> می‌شود.</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="186" y="118" width="8" height="26" fill="#94a3b8"/><rect x="168" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="190" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="190" y="80" text-anchor="middle" class="sg minus" font-size="16">− − −</text>
+                <path d="M80 118 L80 140" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4 4" fill="none"/>
+                <path d="M64 140 L96 140" stroke="#94a3b8" stroke-width="3" fill="none" opacity=".45"/>
+                <path d="M70 147 L90 147" stroke="#94a3b8" stroke-width="3" fill="none" opacity=".45"/>
+                <path d="M76 154 L84 154" stroke="#94a3b8" stroke-width="3" fill="none" opacity=".45"/>
+                <text x="80" y="52" text-anchor="middle" class="scn-lbl">اتصال زمین قطع شد</text>
+                <rect x="252" y="74" width="100" height="20" rx="10" fill="#f59e0b"/>
+                <text x="270" y="89" class="sg plus">+</text><text x="290" y="89" class="sg plus">+</text><text x="310" y="89" class="sg plus">+</text><text x="330" y="89" class="sg plus">+</text>
+                <text x="302" y="58" text-anchor="middle" class="scn-lbl">میله هنوز نزدیک است</text>
+              </svg>
+              <p class="scene-cap">۴) در حضور میله، اتصال به زمین را <b>قطع</b> می‌کنیم — الکترون‌های اضافه دیگر راه فراری ندارند و در کره می‌مانند.</p>
+            </div>
+            <div class="step-scene">
+              <svg viewBox="0 0 380 170" class="scn">
+                <rect x="186" y="118" width="8" height="26" fill="#94a3b8"/><rect x="168" y="144" width="44" height="6" rx="3" fill="#94a3b8"/>
+                <circle cx="190" cy="84" r="34" fill="#eef2ff" stroke="#6366f1" stroke-width="2.5"/>
+                <text x="190" y="80" text-anchor="middle" class="sg minus" font-size="16">− − −</text>
+                <text x="190" y="40" text-anchor="middle" class="scn-lbl">کره با بار منفی باردار شد ✨</text>
+                <path d="M330 84 Q 356 60 352 40" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrB)" fill="none"/>
+                <text x="346" y="26" text-anchor="middle" class="scn-lbl">میله دور شد</text>
+              </svg>
+              <p class="scene-cap">۵) میله را دور می‌بریم؛ بار منفی روی همه‌ی سطح کره پخش می‌شود: کره با بار <b>منفی (ناهمنام با میله)</b> باردار شد!</p>
+            </div>
+          </div>
+          <div class="step-info"></div>
+          <div class="step-btns">
+            <button class="btn btn-ghost st-prev" type="button">→ مرحله‌ی قبل</button>
+            <span class="step-dots"></span>
+            <button class="btn btn-main st-next" type="button">مرحله‌ی بعد ←</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">📌 نکته‌های طلایی القا (دست‌نویس جزوه — صفحه ۸۳)</h3>
+    <div class="grid g2 reveal">
+      <div class="tip blue" style="margin:0"><span class="t-ico">1️⃣</span><div><b>کجا خوب جواب می‌دهد؟</b> روش القا در <b>رساناها</b> بسیار بهتر انجام می‌گیرد و در نارساناها به‌سختی رخ می‌دهد؛ بار القایی در نارساناها <b>کم‌اندازه و ناپایدار</b> است.</div></div>
+      <div class="tip blue" style="margin:0"><span class="t-ico">2️⃣</span><div><b>نوع بارها:</b> بارِ سمتی که به میله <b>نزدیک‌تر</b> است <b>ناهمنام با بار میله</b>، و بارِ سمت <b>دورتر همنام با بار میله</b> می‌باشد.</div></div>
+      <div class="tip blue" style="margin:0"><span class="t-ico">3️⃣</span><div><b>پایستگی بار:</b> قبل از جدا‌کردن، مجموع بارهای القایی دو کره <b>صفر</b> است (هم‌اندازه و ناهمنام) — بار از هیچ‌جا ساخته نمی‌شود!</div></div>
+      <div class="tip blue" style="margin:0"><span class="t-ico">4️⃣</span><div><b>بیش از دو کره:</b> اگر تعداد کره‌های در تماس از دو بیشتر باشد، <b>کره‌های وسط خنثی می‌مانند</b> و فقط کره‌های اول و آخر باردار می‌شوند.</div></div>
+    </div>
+    <div class="tip gold reveal"><span class="t-ico">✍️</span><div><b>جای خالی جزوه:</b> «بار ایجادشده در این روش در دو کره <b>ناهمنام</b> و (در کره‌های یکسان) <b>هم‌اندازه</b> هستند و به <b>اندازه و شکل اجسام رسانا بستگی دارد</b>.» — اگر کره‌ها هم‌شکل و هم‌اندازه نباشند، مقدار بار القایی‌شان دیگر برابر نمی‌ماند.</div></div>
+
+    <div class="example reveal">
+      <div class="ex-head">⭐ پاسخ «تمرین ۷» جزوه <span class="ex-tag">صفحه ۸۳</span></div>
+      <div class="ex-body">
+        <div class="ex-q">نحوه‌ی باردار شدن یک کره‌ی رسانا با یک میله‌ی باردارِ <b>منفی</b> را با رسم شکل نشان دهید.</div>
+        <div class="step"><span class="step-num">۱</span><p>میله‌ی منفی را نزدیک کره می‌بریم؛ الکترون‌های کره <b>دفع</b> می‌شوند و به سمت دور میله می‌روند: سمت نزدیک <b>مثبت</b> و سمت دور <b>منفی</b> می‌شود.</p></div>
+        <div class="step"><span class="step-num">۲</span><p>کره را به <b>زمین</b> وصل می‌کنیم؛ الکترون‌های اضافیِ سمت دور، از کره به زمین می‌روند.</p></div>
+        <div class="step"><span class="step-num">۳</span><p>در حضور میله، اتصال زمین را قطع می‌کنیم و سپس میله را دور می‌بریم.</p></div>
+        <div class="answer">✔ کره با بار <b>مثبت</b> (ناهمنام با میله‌ی منفی) باردار می‌شود — دقیقاً برعکسِ حالت میله‌ی مثبت در انیمیشن بالا!</div>
+      </div>
+    </div>
+
+    <div class="card reveal challenge">
+      <h3><span class="ico">🏆</span>چالش بزرگ: تمرین ۱۱ جزوه — سه کره‌ی فلزی! (صفحه ۸۳)</h3>
+      <p><b>صورت تمرین (از جزوه):</b> سه کره‌ی فلزی <b>یکسان</b> با پایه‌های عایق، به‌همراه یک میله‌ی باردار <b>منفی</b> در اختیار داریم. چگونه می‌توان <b>بدون اینکه بار میله تغییر کند</b>، این سه کره را باردار کرد به‌طوری‌که:</p>
+      <p style="text-align:center;margin-top:6px">«الف) هر سه کره دارای بار مثبت و یکسان باشند &nbsp;|&nbsp; ب) هر سه دارای بار منفی و یکسان &nbsp;|&nbsp; ج) دو کره مثبت و یک کره منفیِ هم‌اندازه &nbsp;|&nbsp; د) دو کره منفی و یک کره مثبتِ هم‌اندازه»</p>
+      <div class="tip pink" style="margin-top:12px"><span class="t-ico">🧰</span><div><b>ابزارهایت:</b> ۱) القای دو کره (بدون زمین) ۲) القای یک کره با اتصال به زمین ۳) اشتراک بار: کره‌های <b>یکسانِ</b> در تماس، بار را <b>به‌طور مساوی</b> تقسیم می‌کنند ۴) خنثی‌سازی کره با تماس زمین. (در جزوه جواب این تمرین نوشته نشده — روی هر بخش کلیک کن تا راه‌حل استاندارد را ببینی.)</div></div>
+      <div class="ch-list">
+        <div class="ch-item"><button class="ch-head" type="button">الف) هر سه کره مثبت و یکسان 👈</button><div class="ch-body"><p>سه کره را کنار هم در <b>تماس</b> قرار بده ← میله‌ی منفی را نزدیک یکی از آن‌ها بیاور ← کره‌ها را موقتاً به <b>زمین</b> وصل کن تا الکترون‌های دفع‌شده به زمین بروند ← در حضور میله، زمین را قطع کن و کره‌ها را از هم جدا کن ← میله را دور ببر. چون کره‌ها یکسان‌اند، هر سه <b>مثبت و هم‌اندازه</b> می‌شوند. ✅</p></div></div>
+        <div class="ch-item"><button class="ch-head" type="button">ب) هر سه کره منفی و یکسان 👈</button><div class="ch-body"><p>با القای دو کره، کره‌ی ۱ و ۲ را باردار کن (کره‌ی نزدیک مثبت، دور <b>منفی</b>) ← کره‌ی مثبت را با زمین <b>خنثی</b> کن ← حالا کره‌ی منفی را با دو کره‌ی خنثی دیگر در <b>تماس</b> بده؛ چون سه کره یکسان‌اند، بار منفی به‌طور <b>مساوی</b> میان آن‌ها تقسیم می‌شود. هر سه منفی و هم‌اندازه! ✅</p></div></div>
+        <div class="ch-item"><button class="ch-head" type="button">ج) دو مثبت و یک منفی (هم‌اندازه) 👈</button><div class="ch-body"><p>القای دو کره روی (۱،۲): کره‌ی ۱ (نزدیک میله) <b>مثبت</b> و کره‌ی ۲ <b>منفی</b> می‌شود ← کره‌ی ۲ را با زمین خنثی کن ← القای دو کره را با همان میله و همان فاصله روی (۲،۳) تکرار کن: کره‌ی ۲ <b>مثبت</b> و کره‌ی ۳ <b>منفی</b> می‌شود. نتیجه: ۱ مثبت، ۲ مثبت، ۳ منفی — همه هم‌اندازه! ✅</p></div></div>
+        <div class="ch-item"><button class="ch-head" type="button">د) دو منفی و یک مثبت (هم‌اندازه) 👈</button><div class="ch-body"><p>القای دو کره روی (۱،۲): کره‌ی ۱ <b>مثبت</b>، کره‌ی ۲ <b>منفی</b> ← کره‌ی ۱ را با زمین خنثی کن ← القای دو کره روی (۱،۳): کره‌ی ۱ <b>مثبت</b>، کره‌ی ۳ <b>منفی</b>. نتیجه: ۱ مثبت، ۲ منفی، ۳ منفی — همه هم‌اندازه! ✅</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= SECTION 3.6: سری الکتریکی ================= -->
+<section id="tribo">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">🧲</div><div><div class="kicker">فصل دوم — جدول سری الکتریسیته‌ی مالشی (صفحات ۸۴ و ۸۵ جزوه)</div><h2>سری الکتریکی؛ نقشه‌ی گرفتن و دادن الکترون</h2></div></div>
+    <p class="sec-desc reveal">دانشمندان با توجه به توانایی مواد در <b>گرفتن یا از دست دادن الکترون</b> حین مالش، آنها را رده‌بندی کرده‌اند؛ این رده‌بندی را <b>سری الکتریکی (ترایبوالکتریک)</b> می‌گویند. با این جدول می‌توانی بدون حتی یک بار مالش دادن، بگویی هر جسم چه باری پیدا می‌کند!</p>
+
+    <div class="grid g2 reveal">
+      <div class="card">
+        <h3><span class="ico">📜</span>قانون طلایی جدول</h3>
+        <p>🔸 هر ماده‌ای که <b>بالاتر</b> است (نزدیک انتهای مثبت)، هنگام مالش راحت‌تر <b>الکترون از دست می‌دهد</b> و بار <b>مثبت</b> می‌گیرد.</p>
+        <p>🔸 هر ماده‌ای که <b>پایین‌تر</b> است (نزدیک انتهای منفی)، تمایل دارد <b>الکترون بگیرد</b> و بار <b>منفی</b> پیدا کند.</p>
+        <p>🔸 <b>هرچه دو ماده در جدول از هم دورتر باشند</b>، هنگام مالشِ آن دو، الکترون <b>بیشتری</b> جابه‌جا می‌شود.</p>
+        <div class="tip gold"><span class="t-ico">✍️</span><div>حاشیه‌ی جزوه‌ات: «پایین‌ترین‌های جدول بهترین <b>الکترون‌گیرنده‌ها</b> و بالاترین‌ها راحت‌ترین <b>الکترون‌دهنده‌ها</b> هستند!»</div></div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">🧪</span>آزمایشگاه مالش — خودت امتحان کن!</h3>
+        <p>دو ماده را انتخاب کن و ببین بعد از مالش، هر کدام چه باری می‌گیرند:</p>
+        <div class="lab-row">
+          <select id="matA" class="lab-sel" aria-label="ماده اول"></select>
+          <span class="lab-x">✖</span>
+          <select id="matB" class="lab-sel" aria-label="ماده دوم"></select>
+        </div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-main" id="labBtn" type="button">🫳 مالش بده!</button></div>
+        <div class="lab-out" id="labOut">مثلاً «شیشه ✖ پشم» را انتخاب کن و مالش بده…</div>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">📊 جدول سری الکتریسیته‌ی مالشی (دقیقاً از جزوه)</h3>
+    <p class="sub-p reveal">روی هر ردیف برو تا جایگاهش را ببینی؛ از <b>موی انسان</b> در انتهای مثبت تا <b>تفلون</b> در انتهای منفی:</p>
+    <div class="trib-ladder reveal" id="tribLadder">
+      <div class="trib-end plus-end">⬆ انتهای مثبت سری — بیشترین تمایل به از دست دادن الکترون</div>
+      <div class="trib-scroll">
+        <div class="trib-row" data-i="0"><span class="trib-num">۱</span><span class="trib-name">موی انسان</span><span class="trib-bar" style="--w:100%"></span><span class="trib-chg">➕ مثبت‌ترین</span></div>
+        <div class="trib-row" data-i="1"><span class="trib-num">۲</span><span class="trib-name">شیشه</span><span class="trib-bar" style="--w:93.7%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="2"><span class="trib-num">۳</span><span class="trib-name">نایلون</span><span class="trib-bar" style="--w:87.5%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="3"><span class="trib-num">۴</span><span class="trib-name">پشم</span><span class="trib-bar" style="--w:81.2%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="4"><span class="trib-num">۵</span><span class="trib-name">موی گربه</span><span class="trib-bar" style="--w:75%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="5"><span class="trib-num">۶</span><span class="trib-name">سرب</span><span class="trib-bar" style="--w:68.7%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="6"><span class="trib-num">۷</span><span class="trib-name">ابریشم</span><span class="trib-bar" style="--w:62.5%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="7"><span class="trib-num">۸</span><span class="trib-name">آلومینیوم</span><span class="trib-bar" style="--w:56.2%"></span><span class="trib-chg">➕</span></div>
+        <div class="trib-row" data-i="8"><span class="trib-num">۹</span><span class="trib-name">کاغذ</span><span class="trib-bar" style="--w:50%"></span><span class="trib-chg">≈ خنثی‌ترین</span></div>
+        <div class="trib-row" data-i="9"><span class="trib-num">۱۰</span><span class="trib-name">پنبه</span><span class="trib-bar" style="--w:43.7%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="10"><span class="trib-num">۱۱</span><span class="trib-name">پارچه‌ی کتان</span><span class="trib-bar" style="--w:37.5%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="11"><span class="trib-num">۱۲</span><span class="trib-name">ابریشم مصنوعی</span><span class="trib-bar" style="--w:31.2%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="12"><span class="trib-num">۱۳</span><span class="trib-name">برنج و مس</span><span class="trib-bar" style="--w:25%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="13"><span class="trib-num">۱۴</span><span class="trib-name">پلاستیک</span><span class="trib-bar" style="--w:18.7%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="14"><span class="trib-num">۱۵</span><span class="trib-name">ساران</span><span class="trib-bar" style="--w:12.5%"></span><span class="trib-chg">➖</span></div>
+        <div class="trib-row" data-i="15"><span class="trib-num">۱۶</span><span class="trib-name">تفلون</span><span class="trib-bar" style="--w:6.2%"></span><span class="trib-chg">➖ منفی‌ترین</span></div>
+      </div>
+      <div class="trib-end minus-end">⬇ انتهای منفی سری — بیشترین تمایل به گرفتن الکترون</div>
+      <div class="tip blue" style="margin:14px 0 0"><span class="t-ico">👀</span><div>این جدول همان «جدول سری» صفحه‌ی ۸۴ جزوه است: بالا <b>موی انسان</b> و پایین <b>تفلون</b>. یادت باشد جایِ «کاغذ» تقریباً وسط جدول است — برای همین کاغذ و پارچه کتان بار زیادی از مالش نمی‌گیرند.</div></div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۸ <span class="ex-tag">مثال ۱ جزوه — صفحه ۸۴</span></div>
+      <div class="ex-body">
+        <div class="ex-q">اگر یک میله‌ی پلاستیکی را با موی گربه و یک میله‌ی شیشه‌ای را با موی انسان مالش دهیم، دو میله چه نیرویی به یکدیگر وارد می‌کنند؟</div>
+        <div class="step"><span class="step-num">۱</span><p>میله‌ی پلاستیکی ✖ موی گربه: پلاستیک (ردیف ۱۴) خیلی پایین‌تر از موی گربه (ردیف ۵) است ← پلاستیک <b>الکترون می‌گیرد و منفی</b> می‌شود و موی گربه مثبت.</p></div>
+        <div class="step"><span class="step-num">۲</span><p>میله‌ی شیشه‌ای ✖ موی انسان: موی انسان (ردیف ۱) <b>بالاتر از شیشه</b> (ردیف ۲) است ← موی انسان الکترون از دست می‌دهد و <b>شیشه الکترون می‌گیرد و منفی</b> می‌شود.</p></div>
+        <div class="step"><span class="step-num">۳</span><p>پس <b>هر دو میله بار منفی (هم‌نام)</b> پیدا کرده‌اند.</p></div>
+        <div class="answer">✔ جواب: بارهای هم‌نام یکدیگر را <b>دفع</b> می‌کنند ← دو میله نیروی <b>دافعه</b> بر هم وارد می‌کنند.</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">⭐ پاسخ «تمرین ۲» جزوه <span class="ex-tag">صفحه ۸۴</span></div>
+      <div class="ex-body">
+        <div class="ex-q">آیا اجسام رسانا را می‌توان با روش مالش باردار کرد؟</div>
+        <div class="step"><span class="step-num">۱</span><p>بله! رساناها هم با مالش باردار می‌شوند؛ چون جسم رسانا <b>الکترون آزاد فراوان</b> دارد، هنگام مالش الکترون‌ها را راحت‌تر از دست می‌دهد یا می‌گیرد.</p></div>
+        <div class="step"><span class="step-num">۲</span><p>اما یک شرط مهم: اگر رسانا <b>در دست</b> باشد یا به زمین متصل باشد، بارِ به‌دست‌آمده <b>فوراً از طریق بدن به زمین می‌رود</b> و جسم خنثی می‌ماند.</p></div>
+        <div class="answer">✔ جواب: بله — به شرطی که رسانا را با <b>دسته‌ی عایق</b> بگیریم یا روی <b>پایه‌ی عایق</b> قرار دهیم تا بار تخلیه نشود.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= SECTION 3.7: بار کوانتیده ================= -->
+<section id="charge">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">⚛️</div><div><div class="kicker">فصل سوم — صفحات ۸۴ تا ۸۷ جزوه</div><h2>کوانتیده بودن بار و فرمول q = ne</h2></div></div>
+    <p class="sec-desc reveal">آیا بار الکتریکی هر مقداری می‌تواند باشد؟ نه! بار «پله‌پله‌ای» است، نه پیوسته. در این فصل مفهوم <b>کوانتیده بودن</b> را می‌فهمیم، با بار بنیادی <span class="sym-l">e</span> و فرمول <span class="sym-l">q = ±ne</span> آشنا می‌شویم و همه‌ی مثال‌ها و تمرین‌های محاسباتی جزوه را حل می‌کنیم — حتی با یک ماشین‌حساب بار الکتریکی!</p>
+
+    <h3 class="sub-h reveal">📦 گسسته یا پیوسته؟ (صفحه ۸۴ جزوه)</h3>
+    <div class="grid g2 reveal">
+      <div class="card" style="border-top:4px solid #8b5cf6">
+        <h3><span class="ico">🪜</span>کمیت گسسته (کوانتیده)</h3>
+        <p>کمیت‌هایی که فقط مقادیر <b>مجزا و ناپیوسته</b> می‌توانند داشته باشند. مثال جزوه: <b>تعداد دانش‌آموزان کلاس</b> — می‌تواند ۱ نفر یا ۲ نفر باشد، اما «۱/۵ دانش‌آموز» بی‌معنی است!</p>
+        <div class="stairs" aria-hidden="true"><span style="height:22%">۱</span><span style="height:44%">۲</span><span style="height:66%">۳</span><span style="height:88%">۴</span></div>
+        <p class="fnote">مقدارها فقط پله‌پله بالا می‌روند — چیزی بین دو پله وجود ندارد.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #06b6d4">
+        <h3><span class="ico">📐</span>کمیت پیوسته</h3>
+        <p>کمیت‌هایی که <b>هر مقداری</b> می‌توانند داشته باشند؛ بین دو مقدار، بی‌شمار مقدار دیگر هست. مثال جزوه: <b>وزن یا قدِ یک نفر</b> — می‌تواند ۳۸/۷ کیلوگرم یا ۱۵۲/۳۴ سانتی‌متر باشد.</p>
+        <div class="ramp" aria-hidden="true"><div class="ramp-fill"></div></div>
+        <p class="fnote">شیبِ صاف — هر مقدارِ بین دو نقطه ممکن است.</p>
+      </div>
+    </div>
+    <div class="tip gold reveal"><span class="t-ico">💡</span><div><b>پس بار الکتریکی گسسته است!</b> بار هیچ جسمی نمی‌تواند «۱/۵ الکترون» بار داشته باشد؛ بار همیشه <b>مضرب صحیحِ بار یک الکترون</b> است. هر بسته‌ی کوچکِ بار را یک <b>کوانتوم</b> می‌نامند (کوانتوم = بسته‌ی کوچک — دست‌نویس جزوه!).</div></div>
+
+    <h3 class="sub-h reveal">🧮 چهار فرمول طلایی این فصل</h3>
+    <div class="grid g3 reveal">
+      <div class="card"><h3><span class="ico">e</span>بار بنیادی</h3><div class="formula">e = 1/6 × 10⁻¹⁹ C</div><p class="fnote">اندازه‌ی بار پروتون و الکترون <b>دقیقاً برابر</b> است — این کوچک‌ترین بسته‌ی بار آزاد جهان است!</p></div>
+      <div class="card"><h3><span class="ico">q</span>بار هر جسم</h3><div class="formula">q = ± n e</div><p class="fnote">بار جسم = مضرب صحیحِ بار بنیادی (n = ۱، ۲، ۳، …). الکترون گرفته ← منفی، الکترون داده ← مثبت.</p></div>
+      <div class="card"><h3><span class="ico">n</span>تعداد الکترون‌ها</h3><div class="formula">n = |q| / e</div><p class="fnote">برای یافتن تعداد الکترون‌های مبادله‌شده، بار را بر بار بنیادی تقسیم کن.</p></div>
+      <div class="card"><h3><span class="ico">⚖️</span>قدر مطلق</h3><div class="formula">|−3/2| = 3/2</div><p class="fnote">در فرمول n فقط <b>اندازه‌ی</b> بار لازم است؛ علامت منفی را کنار می‌گذاریم (نکته‌ی دست‌نویس جزوه).</p></div>
+      <div class="card"><h3><span class="ico">📏</span>یکای بار: کولن</h3><div class="formula">1 μC = 10⁻⁶ C ، 1 nC = 10⁻⁹ C</div><p class="fnote">یکای بار الکتریکی <b>کولن (C)</b> است؛ میکروکولن و نانوکولن برای بارهای کوچک به کار می‌روند.</p></div>
+      <div class="card"><h3><span class="ico">🔢</span>یعنی چه؟</h3><div class="formula">q = 2e = 3/2 × 10⁻¹⁹ C</div><p class="fnote">جسمی با ۲ الکترون اضافه، بارِ <b>۲ برابر بار بنیادی</b> دارد — همیشه مضربِ صحیح!</p></div>
+    </div>
+
+    <h3 class="sub-h reveal">✍️ مثال‌ها و تمرین‌های حل‌شده — دقیقاً از جزوه (صفحات ۸۵ تا ۸۷)</h3>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۹ <span class="ex-tag">جدول جزوه — صفحه ۸۵</span></div>
+      <div class="ex-body">
+        <div class="ex-q">جدول زیر را کامل کنید (بار حاصل از گرفتن یا از دست دادن الکترون):</div>
+        <div class="tbl-wrap"><table>
+          <tr><th>تعداد الکترونِ گرفته‌شده</th><th>بار الکتریکی حاصل (منفی)</th><th>تعداد الکترونِ از دست رفته</th><th>بار الکتریکی حاصل (مثبت)</th></tr>
+          <tr><td>۱</td><td><span class="sym-l">q = −ne = −1 × 1/6×10⁻¹⁹ = <b>−1/6 × 10⁻¹⁹ C</b></span></td><td>۱</td><td><span class="sym-l">q = +ne = <b>+1/6 × 10⁻¹⁹ C</b></span></td></tr>
+          <tr><td>۲</td><td><span class="sym-l">q = −2e = <b>−3/2 × 10⁻¹⁹ C</b></span></td><td>۲</td><td><span class="sym-l">q = +2e = <b>+3/2 × 10⁻¹⁹ C</b></span></td></tr>
+          <tr><td>۳</td><td><span class="sym-l">q = −3e = <b>−4/8 × 10⁻¹⁹ C</b></span></td><td>۳</td><td><span class="sym-l">q = +3e = <b>+4/8 × 10⁻¹⁹ C</b></span></td></tr>
+        </table></div>
+        <div class="answer">✔ الگو: هر الکترون، بار را یک «پله» به اندازه‌ی <span class="sym-l">1/6×10⁻¹⁹ C</span> تغییر می‌دهد — همان پله‌های کوانتیده!</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۱۰ <span class="ex-tag">مثال ۳ جزوه — صفحه ۸۵</span></div>
+      <div class="ex-body">
+        <div class="ex-q">اگر جسمی دارای <b>۴/۸ میکروکولن</b> بار الکتریکی مثبت شده باشد، چند الکترون از دست داده است؟</div>
+        <div class="step"><span class="step-num">۱</span><p>اول یکا را به کولن تبدیل کن: <span class="sym-l">4/8 μC = 4/8 × 10⁻⁶ C</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>فرمول تعداد الکترون: <span class="sym-l">n = |q| / e = (4/8 × 10⁻⁶) ÷ (1/6 × 10⁻¹⁹)</span></p></div>
+        <div class="step"><span class="step-num">۳</span><p><span class="sym-l">4/8 ÷ 1/6 = 3</span> و <span class="sym-l">10⁻⁶ ÷ 10⁻¹⁹ = 10¹³</span> پس <span class="sym-l">n = 3 × 10¹³</span></p></div>
+        <div class="answer">✔ جواب: <span class="sym-l">n = 3 × 10¹³</span> — یعنی ۳۰ هزار میلیارد الکترون! (همان عدد دست‌نویس جزوه ✅)</div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۱۱ <span class="ex-tag">مثال ۵ جزوه — صفحه ۸۶</span></div>
+      <div class="ex-body">
+        <div class="ex-q">بار الکتریکی یک جسم <b>۳/۲− نانوکولن</b> است.<br>الف) این جسم الکترون از دست داده یا گرفته است؟ &nbsp;&nbsp;ب) تعداد الکترون‌های مبادله‌شده را محاسبه کنید.</div>
+        <div class="step"><span class="step-num">۱</span><p><b>الف)</b> چون بار جسم <b>منفی</b> است، جسم <b>الکترون گرفته</b> است (الکترون اضافه = بار منفی).</p></div>
+        <div class="step"><span class="step-num">۲</span><p><b>ب)</b> <span class="sym-l">n = |q| / e = (3/2 × 10⁻⁹) ÷ (1/6 × 10⁻¹⁹)</span></p></div>
+        <div class="step"><span class="step-num">۳</span><p><span class="sym-l">3/2 ÷ 1/6 = 2</span> و <span class="sym-l">10⁻⁹ ÷ 10⁻¹⁹ = 10¹⁰</span> پس <span class="sym-l">n = 2 × 10¹⁰</span></p></div>
+        <div class="answer">✔ جواب: جسم <b>۲ × ۱۰¹⁰</b> الکترون <b>گرفته</b> است. (مطابق دست‌نویس جزوه ✅)</div>
+      </div>
+    </div>
+
+    <div class="card reveal mq-card">
+      <h3><span class="ico">🎯</span>تست تعاملی جزوه (مثال ۴ — صفحه ۸۶)</h3>
+      <p><b>کدام‌یک از مقادیر زیر می‌تواند بار الکتریکی یک جسم باشد؟</b> (اول خودت فکر کن، بعد روی گزینه بزن)</p>
+      <div class="opts" id="mqOpts">
+        <button class="opt" type="button" data-res="ok">۱) <span class="sym-l">3/2 × 10⁻¹⁹ C</span></button>
+        <button class="opt" type="button" data-res="no">۲) <span class="sym-l">6/4 × 10⁻²⁰ C</span></button>
+        <button class="opt" type="button" data-res="no">۳) <span class="sym-l">8 × 10⁻²⁰ C</span></button>
+        <button class="opt" type="button" data-res="note">۴) <span class="sym-l">16 × 10⁻²⁰ C</span></button>
+      </div>
+      <div class="expl" id="mqExpl"></div>
+      <p class="fnote">💡 راه تشخیص: مقدار را بر <span class="sym-l">e = 1/6×10⁻¹⁹</span> تقسیم کن؛ اگر حاصل <b>عدد صحیح</b> بود، آن مقدار می‌تواند بار الکتریکی باشد.</p>
+    </div>
+
+    <div class="example reveal">
+      <div class="ex-head">🧮 مثال ۱۲ <span class="ex-tag">تمرین ۴ جزوه — صفحه ۸۶</span></div>
+      <div class="ex-body">
+        <div class="ex-q">یک میله‌ی شیشه‌ای را با پارچه‌ای ابریشمی مالش می‌دهیم؛ پس از مالش، بار میله‌ی شیشه‌ای <b>۱۱/۲+ نانوکولن</b> می‌شود.<br>الف) بار الکتریکی ایجادشده در پارچه‌ی ابریشمی چقدر است؟ &nbsp;&nbsp;ب) تعداد الکترون‌های منتقل‌شده از میله به پارچه را حساب کنید.</div>
+        <div class="step"><span class="step-num">۱</span><p><b>الف)</b> شیشه در سری الکتریکی <b>بالاتر از ابریشم</b> است؛ پس شیشه الکترون از دست می‌دهد (مثبت می‌شود) و پارچه‌ی ابریشمی همان الکترون‌ها را می‌گیرد. طبق پایستگی بار: <span class="sym-l">q(پارچه) = −q(شیشه)</span></p></div>
+        <div class="step"><span class="step-num">۲</span><p>پس بار پارچه‌ی ابریشمی: <span class="sym-l">q = −11/2 nC = −11/2 × 10⁻⁹ C</span></p></div>
+        <div class="step"><span class="step-num">۳</span><p><b>ب)</b> <span class="sym-l">n = |q| / e = (11/2 × 10⁻⁹) ÷ (1/6 × 10⁻¹⁹)</span></p></div>
+        <div class="step"><span class="step-num">۴</span><p><span class="sym-l">11/2 ÷ 1/6 = 7</span> پس <span class="sym-l">n = 7 × 10¹⁰</span></p></div>
+        <div class="answer">✔ جواب: الف) <span class="sym-l">−11/2 nC</span> &nbsp;|&nbsp; ب) <span class="sym-l">7 × 10¹⁰</span> الکترون از شیشه به ابریشم منتقل شد. ✅</div>
+      </div>
+    </div>
+
+    <div class="grid g2 reveal">
+      <div class="example" style="margin:0">
+        <div class="ex-head">🧮 مثال ۱۳ <span class="ex-tag">تمرین ۵ جزوه — صفحه ۸۶</span></div>
+        <div class="ex-body">
+          <div class="ex-q">چند الکترون باید از یک جسم خنثی انتقال یابد تا بار الکتریکی به‌اندازه‌ی <b>۶/۴ نانوکولن</b> در آن ایجاد شود؟</div>
+          <div class="step"><span class="step-num">۱</span><p><span class="sym-l">n = |q| / e = (6/4 × 10⁻⁹) ÷ (1/6 × 10⁻¹⁹)</span></p></div>
+          <div class="step"><span class="step-num">۲</span><p><span class="sym-l">6/4 ÷ 1/6 = 4</span> پس <span class="sym-l">n = 4 × 10¹⁰</span></p></div>
+          <div class="answer">✔ جواب: <span class="sym-l">4 × 10¹⁰</span> الکترون (مطابق جزوه ✅)</div>
+        </div>
+      </div>
+      <div class="example" style="margin:0">
+        <div class="ex-head">🧮 مثال ۱۴ <span class="ex-tag">تمرین ۶ جزوه — صفحه ۸۷</span></div>
+        <div class="ex-body">
+          <div class="ex-q">به انتهای یک میله‌ی عایق، <b>۱۰¹⁰ الکترون</b> می‌دهیم. بار این میله چند کولن می‌شود؟</div>
+          <div class="step"><span class="step-num">۱</span><p>چون میله <b>الکترون گرفته</b>، بارش منفی است: <span class="sym-l">q = −ne</span></p></div>
+          <div class="step"><span class="step-num">۲</span><p><span class="sym-l">q = −10¹⁰ × 1/6 × 10⁻¹⁹ = −1/6 × 10⁻⁹ C</span></p></div>
+          <div class="answer">✔ جواب: <span class="sym-l">q = −1/6 × 10⁻⁹ C = −1/6 nC</span> — بار منفی!</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-h reveal">🖥️ ماشین‌حساب بار الکتریکی</h3>
+    <div class="card reveal calc-card">
+      <div class="calc-tabs">
+        <button class="mode-btn active" data-cm="n2q" type="button">تعداد الکترون ← بار</button>
+        <button class="mode-btn" data-cm="q2n" type="button">بار ← تعداد الکترون</button>
+      </div>
+      <div id="calcN2Q">
+        <div class="calc-row">
+          <label>تعداد الکترون‌های مبادله‌شده:</label>
+          <input type="number" id="calcN" class="blank-input" value="10000000000" min="1" step="1" style="width:190px">
+        </div>
+        <div class="calc-row">
+          <label>این جسم:</label>
+          <select id="calcSign" class="lab-sel"><option value="-1">الکترون گرفته (بار منفی)</option><option value="1">الکترون از دست داده (بار مثبت)</option></select>
+        </div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-main" id="calcBtn1" type="button">⚡ محاسبه کن</button></div>
+      </div>
+      <div id="calcQ2N" style="display:none">
+        <div class="calc-row">
+          <label>مقدار بار:</label>
+          <input type="number" id="calcQ" class="blank-input" value="3.2" step="any" style="width:130px">
+          <select id="calcUnit" class="lab-sel"><option value="1e-9">نانوکولن (nC)</option><option value="1e-6">میکروکولن (μC)</option><option value="1e-12">پیکوکولن (pC)</option><option value="1">کولن (C)</option></select>
+        </div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-main" id="calcBtn2" type="button">⚡ محاسبه کن</button></div>
+      </div>
+      <div class="calc-out" id="calcOut">مثلاً تعداد الکترون را ۱۰¹⁰ بگذار و محاسبه کن — همان تمرین ۶ جزوه!</div>
+    </div>
+  </div>
+</section>
+<!-- ================= SECTION 4: خلاصه و مرور ================= -->
+<section id="summary">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">🗂</div><div><div class="kicker">مرور سریع — ۵ دقیقه قبل امتحان</div><h2>جداول خلاصه‌ی کل جزوه</h2></div></div>
+    <p class="sec-desc reveal">همه‌چیز در هفت جدول! این بخش را شب امتحان مرور کن تا هیچ چیز از یادت نرود.</p>
+
+    <h3 class="sub-h reveal">۱️⃣ یکاهای کمیت‌های اصلی (SI)</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>کمیت</th><th>یکا</th><th>نماد</th><th>کمیت</th><th>یکا</th><th>نماد</th></tr>
+      <tr><td>طول</td><td>متر</td><td><span class="sym">m</span></td><td>دما</td><td>کلوین</td><td><span class="sym">K</span></td></tr>
+      <tr><td>جرم</td><td>کیلوگرم</td><td><span class="sym">kg</span></td><td>جریان الکتریکی</td><td>آمپر</td><td><span class="sym">A</span></td></tr>
+      <tr><td>زمان</td><td>ثانیه</td><td><span class="sym">s</span></td><td>شدت روشنایی</td><td>کندلا</td><td><span class="sym">cd</span></td></tr>
+      <tr><td>مقدار ماده</td><td>مول</td><td><span class="sym">mol</span></td><td>—</td><td>—</td><td>—</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۲️⃣ پیشوندها</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th colspan="4" style="text-align:center;background:#fef2f2;color:#b91c1c">کوچک‌کننده 🔻</th><th colspan="4" style="text-align:center;background:#f0fdf4;color:#047857">بزرگ‌کننده 🔺</th></tr>
+      <tr><th>پیشوند</th><th>نماد</th><th>نماد</th><th>توان</th><th>پیشوند</th><th>نماد</th><th>نماد</th><th>توان</th></tr>
+      <tr><td>دسی</td><td>d</td><td><span class="sym-l">10⁻¹</span></td><td>یک‌دهم</td><td>دکا</td><td>da</td><td><span class="sym-l">10¹</span></td><td>ده‌برابر</td></tr>
+      <tr><td>سانتی</td><td>c</td><td><span class="sym-l">10⁻²</span></td><td>یک‌صدم</td><td>هکتو</td><td>h</td><td><span class="sym-l">10²</span></td><td>صد برابر</td></tr>
+      <tr><td>میلی</td><td>m</td><td><span class="sym-l">10⁻³</span></td><td>یک‌هزارم</td><td>کیلو</td><td>k</td><td><span class="sym-l">10³</span></td><td>هزار برابر</td></tr>
+      <tr><td>میکرو</td><td>μ</td><td><span class="sym-l">10⁻⁶</span></td><td>یک‌میلیونم</td><td>مگا</td><td>M</td><td><span class="sym-l">10⁶</span></td><td>میلیون برابر</td></tr>
+      <tr><td>نانو</td><td>n</td><td><span class="sym-l">10⁻⁹</span></td><td>یک‌میلیاردم</td><td>گیگا</td><td>G</td><td><span class="sym-l">10⁹</span></td><td>میلیارد برابر</td></tr>
+      <tr><td>پیکو</td><td>p</td><td><span class="sym-l">10⁻¹²</span></td><td>بیلیون‌م</td><td>ترا</td><td>T</td><td><span class="sym-l">10¹²</span></td><td>بیلیون برابر</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۳️⃣ فرمول‌ها، یکاها و نوع کمیت</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>کمیت</th><th>فرمول</th><th>یکا</th><th>نوع</th></tr>
+      <tr><td>مساحت</td><td><span class="sym-l">A = a × b</span></td><td><span class="sym-l">m²</span></td><td>نرده‌ای</td></tr>
+      <tr><td>حجم</td><td><span class="sym-l">V = a × b × c</span></td><td><span class="sym-l">m³</span></td><td>نرده‌ای</td></tr>
+      <tr><td>جابه‌جایی</td><td><span class="sym-l">ΔX = X₂ − X₁</span></td><td><span class="sym-l">m</span></td><td>برداری</td></tr>
+      <tr><td>چگالی</td><td><span class="sym-l">ρ = m / V</span></td><td><span class="sym-l">kg/m³</span></td><td>نرده‌ای</td></tr>
+      <tr><td>سرعت متوسط</td><td><span class="sym-l">v = Δx / Δt</span></td><td><span class="sym-l">m/s</span></td><td>برداری</td></tr>
+      <tr><td>شتاب</td><td><span class="sym-l">a = ΔV / Δt</span></td><td><span class="sym-l">m/s²</span></td><td>برداری</td></tr>
+      <tr><td>گرما</td><td><span class="sym-l">Q = m·c·Δθ</span></td><td><span class="sym-l">J</span></td><td>نرده‌ای</td></tr>
+      <tr><td>کار</td><td><span class="sym-l">W = F·d·cosθ</span> ، <span class="sym-l">1J = N·m</span></td><td><span class="sym-l">J</span></td><td>نرده‌ای</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۴️⃣ ذرات اتم</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>ذره</th><th>بار نسبی</th><th>جرم نسبی</th><th>محل</th></tr>
+      <tr><td>الکترون</td><td>۱−</td><td>≈ ۰</td><td>اوربیتال (دور هسته)</td></tr>
+      <tr><td>پروتون</td><td>۱+</td><td>۱</td><td>هسته</td></tr>
+      <tr><td>نوترون</td><td>۰</td><td>۱</td><td>هسته</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۵️⃣ روش‌های باردار کردن اجسام</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>روش</th><th>چه اتفاقی می‌افتد؟</th><th>بار جسم باردارشونده</th><th>بهترین برای</th></tr>
+      <tr><td>🧼 مالش</td><td>الکترون‌ها از جسمی به جسم دیگر منتقل می‌شوند (تولید/حذف نمی‌شوند!)</td><td>بسته به جایگاه در سری الکتریکی: مثبت یا منفی</td><td>عایق‌ها (پلاستیک، شیشه، بادکنک)</td></tr>
+      <tr><td>🤝 تماس</td><td>جسم باردار به جسم خنثی می‌خورد و بخشی از بار منتقل می‌شود</td><td>هم‌نام با بار جسم باردارکننده</td><td>رساناها</td></tr>
+      <tr><td>🧲 القا</td><td>جسم باردار نزدیک می‌آید (بدون تماس) و بارها جابه‌جا می‌شوند؛ با زمین یا جدا‌کردن کره‌ها «قفل» می‌شوند</td><td>ناهمنام با بار جسم باردارکننده (در سمت نزدیک)</td><td>رساناها (در نارساناها کم و ناپایدار)</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۶️⃣ سری الکتریکی در یک نگاه (موی انسان ➕ تا تفلون ➖)</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>سمت مثبت (الکترون می‌دهند)</th><th>تقریباً وسط</th><th>سمت منفی (الکترون می‌گیرند)</th></tr>
+      <tr><td>موی انسان، شیشه، نایلون، پشم، موی گربه، سرب، ابریشم، آلومینیوم</td><td>کاغذ</td><td>پنبه، پارچه‌ی کتان، ابریشم مصنوعی، برنج و مس، پلاستیک، ساران، تفلون</td></tr>
+      <tr><td colspan="3" style="background:#fffbeb;font-weight:700">📌 قاعده‌ها: بالاترِ جدول هنگام مالش مثبت می‌شود | پایین‌تر منفی | هرچه دو ماده دورتر باشند، جابه‌جایی الکترون بیشتر است | شیشه ✖ پشم ← شیشه مثبت | پلاستیک ✖ هرچیز ← پلاستیک منفی</td></tr>
+    </table></div>
+
+    <h3 class="sub-h reveal">۷️⃣ فرمول‌های بار الکتریکی</h3>
+    <div class="tbl-wrap reveal"><table>
+      <tr><th>نام</th><th>فرمول</th><th>توضیح</th></tr>
+      <tr><td>بار بنیادی</td><td><span class="sym-l">e = 1/6 × 10⁻¹⁹ C</span></td><td>اندازه‌ی بار پروتون و الکترون — کوچک‌ترین بسته‌ی بار (کوانتوم)</td></tr>
+      <tr><td>بار جسم</td><td><span class="sym-l">q = ± n e</span></td><td>بار هر جسم مضرب صحیحِ بار بنیادی است (گسسته/کوانتیده)</td></tr>
+      <tr><td>تعداد الکترون</td><td><span class="sym-l">n = |q| / e</span></td><td>|q| یعنی قدر مطلق: علامت را کنار بگذار</td></tr>
+      <tr><td>یکاها</td><td><span class="sym-l">1 μC = 10⁻⁶ C</span> ، <span class="sym-l">1 nC = 10⁻⁹ C</span></td><td>یکای اصلی بار: کولن (C)</td></tr>
+      <tr><td>پاسخ سریع</td><td><span class="sym-l">2 × 10¹⁰ e → q = 3/2 nC</span></td><td>ضرب و تقسیم توان‌ها: <span class="sym-l">10¹⁰ × 10⁻¹⁹ = 10⁻⁹</span></td></tr>
+    </table></div>
+
+    <div class="tip gold reveal"><span class="t-ico">🌟</span><div><b>جمله‌های طلایی جزوه:</b> ۱) الکتریسیته از «الکترون» یعنی «کهربا» آمده. ۲) پروتون و نوترون در «هسته» و الکترون در «اوربیتال» است. ۳) جسمی الکترون بگیرد منفی و الکترون بدهد مثبت می‌شود. ۴) در مالش، تماس و القا فقط «الکترون» جابه‌جا می‌شود، نه پروتون. ۵) در القا: سمت نزدیک ناهمنام و سمت دور همنام با میله‌ی باردار. ۶) بار الکتریکی کوانتیده است: فقط مضرب صحیح <span class="sym-l">e = 1/6×10⁻¹⁹ C</span>. ۷) برای تبدیل نانوکولن به کولن در ۱۰⁻⁹ ضرب کن.</div></div>
+  </div>
+</section>
+
+<!-- ================= SECTION 5: آزمون جامع ================= -->
+<section id="quiz">
+  <div class="container">
+    <div class="sec-head reveal"><div class="sec-icon">📝</div><div><div class="kicker">۸۰ سوال — از تمام بخش‌های جزوه</div><h2>آزمون جامع تعاملی</h2></div></div>
+    <p class="sec-desc reveal">دانش‌ات را محک بزن! چهارگزینه‌ای، صح‌وغلط، جای خالی و سوال‌های محاسباتی تبدیل یکا. در حالت تمرین جواب فوری می‌گیری و در حالت امتحان، در پایان نمره‌ات از ۲۰ را می‌بینی.</p>
+    <div class="quiz-box">
+      <div class="quiz-toolbar">
+        <div class="mode-btns" role="tablist">
+          <button class="mode-btn active" data-mode="practice" type="button">🎯 حالت تمرین</button>
+          <button class="mode-btn" data-mode="exam" type="button">🏆 حالت امتحان</button>
+        </div>
+        <div class="q-progress">
+          <div class="pbar"><div class="pfill" id="pfill"></div></div>
+          <span class="q-meta" id="qmeta">پاسخ‌داده: ۰ از ۵۵</span>
+        </div>
+      </div>
+      <div class="mode-hint" id="modeHint">🎯 <b>حالت تمرین:</b> بعد از انتخاب هر گزینه، درستی یا نادرستی آن فوراً مشخص می‌شود و توضیح آموزشی نمایش داده می‌شود.</div>
+      <div id="quizArea"></div>
+      <div class="quiz-actions">
+        <button class="btn btn-main" id="submitBtn" type="button">🏁 پایان آزمون و مشاهده نمره</button>
+        <button class="btn btn-ghost" id="resetBtn" type="button">🔄 شروع دوباره</button>
+      </div>
+      <div class="result" id="result">
+        <svg width="0" height="0"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+        <h3 class="r-title">📊 نتیجه آزمون شما</h3>
+        <div class="ring-wrap">
+          <svg width="172" height="172" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-val" id="ringVal" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-txt"><span class="big" id="rScore">۰</span><span class="sm">نمره از ۲۰</span></div>
+        </div>
+        <div class="r-msg" id="rMsg"></div>
+        <div class="r-sub" id="rSub"></div>
+        <div class="cat-bars" id="catBars"></div>
+        <div class="r-sub" style="margin-top:8px">💡 برای دیدن پاسخ درست و توضیح هر سوال، به همان سوال برگرد — همه توضیح‌ها باز شده‌اند.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-line">⚡ جزوه تعاملی فیزیک هشتم — تبدیل یکا، الکتریسیته ساکن، روش‌های باردار کردن و بار کوانتیده</div>
+  <div>بر اساس جزوه‌ی کلاسی دست‌نویس (تهیه و تنظیم: علی شنوندی) | فصل صفرم تا سوم + آزمون جامع ۸۰ سوالی</div>
+  <div style="margin-top:6px">ساخته‌شده با 💜 برای دانش‌آموزان کوشا — موفق باشی! 🌟</div>
+</footer>
+<button id="toTop" type="button" title="بازگشت به بالا" aria-label="بازگشت به بالا">↑</button>
+<script>
+/* ================= داده‌های آزمون ================= */
+const Q=[
+/* --- دسته A: کمیت‌ها و یکاها --- */
+{c:'کمیت‌ها و یکاها',t:'mc',q:'کدام‌یک یک کمیت فیزیکی است؟',o:['زیبایی یک گل','طول یک مداد','مزه‌ی یک غذا','صدای دلنشین موسیقی'],a:1,e:'کمیت فیزیکی باید قابل اندازه‌گیری باشد؛ طول مداد را می‌توان با خط‌کش اندازه گرفت، ولی زیبایی، مزه و دلنشینی قابل اندازه‌گیری عددی نیستند.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'هر کمیت فیزیکی از چه چیزی تشکیل می‌شود؟',o:['فقط عدد','فقط یکا','عدد و یکا','عدد و جهت'],a:2,e:'هر کمیت از «عدد + یکا» تشکیل می‌شود؛ مانند ۱۵ سانتی‌متر. جهت فقط برای کمیت‌های برداری لازم است.'},
+{c:'کمیت‌ها و یکاها',t:'blank',q:'به هر پدیده‌ی قابل اندازه‌گیری که بتوان آن را با عدد نشان داد، ......... فیزیکی می‌گویند.',a:['کمیت','كميت'],e:'این دقیقاً تعریف کمیت فیزیکی است: پدیده‌ای قابل اندازه‌گیری که با عدد نشان داده می‌شود.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'کدام گزینه از کمیت‌های اصلی SI نیست؟',o:['طول','جرم','مساحت','دما'],a:2,e:'مساحت کمیت «فرعی» است و از ضرب دو کمیت اصلی (طول × طول) به دست می‌آید. طول، جرم و دما جزو ۷ کمیت اصلی‌اند.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'یکای جریان الکتریکی در دستگاه SI چه نام دارد؟',o:['ولت','آمپر','اهم','وات'],a:1,e:'جریان الکتریکی با «آمپر (A)» اندازه‌گیری می‌شود؛ ولت اختلاف پتانسیل و اهم مقاومت است.'},
+{c:'کمیت‌ها و یکاها',t:'blank',q:'یکای شدت روشنایی در دستگاه SI، ......... نام دارد.',a:['کندلا','كندلا'],e:'شدت روشنایی با «کندلا (cd)» اندازه‌گیری می‌شود؛ یکی از ۷ یکای اصلی SI.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'یکای «مول (mol)» مربوط به کدام کمیت اصلی است؟',o:['مقدار ماده','جرم','زمان','شدت روشنایی'],a:0,e:'مول یکای «مقدار ماده» است؛ برای شمارش ذرات ریز مانند اتم‌ها و مولکول‌ها به کار می‌رود.'},
+{c:'کمیت‌ها و یکاها',t:'tf',q:'«مساحت» یک کمیت فرعی است.',a:true,e:'درست! مساحت از ضرب طول در طول به دست می‌آید و یکای مستقل ندارد (m²). کمیت‌های فرعی از روابط ریاضی بین کمیت‌های اصلی ساخته می‌شوند.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'کمیت‌های فرعی چگونه به دست می‌آیند؟',o:['مستقل از کمیت‌های اصلی اند','از روابط ریاضی بین کمیت‌های اصلی','فقط با پیشوندها ساخته می‌شوند','با ضرب عدد در π'],a:1,e:'کمیت فرعی یکای مستقل ندارد و بر اساس روابط ریاضی (جمع، تفریق، ضرب، تقسیم) بین کمیت‌های اصلی به دست می‌آید.'},
+{c:'کمیت‌ها و یکاها',t:'tf',q:'برای بیان یک کمیت برداری، فقط عدد و یکا کافی است.',a:false,e:'غلط! کمیت برداری علاوه بر عدد و یکا به «جهت» هم نیاز دارد؛ مانند «نیروی ۲ نیوتون به سمت چپ». آن که فقط عدد و یکا می‌خواهد، نرده‌ای است.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'کدام کمیت برداری است؟',o:['جرم','دما','نیرو','حجم'],a:2,e:'نیرو هم اندازه دارد هم جهت (مثلاً ۲ نیوتون به سمت چپ). جرم، دما و حجم نرده‌ای‌اند.'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'کدام گروه، همه کمیت نرده‌ای هستند؟',o:['مساحت، حجم، گرما','نیرو، سرعت، شتاب','جابه‌جایی، کار، حجم','سرعت، جرم، دما'],a:0,e:'مساحت، حجم و گرما جهت ندارند. در گزینه‌های دیگر، نیرو، سرعت، شتاب و جابه‌جایی برداری‌اند.'},
+{c:'کمیت‌ها و یکاها',t:'blank',q:'یکای چگالی در دستگاه SI، کیلوگرم بر ......... است.',a:['مترمکعب','متر مکعب'],e:'چگالی = جرم ÷ حجم ← kg/m³ یعنی «کیلوگرم بر مترمکعب».'},
+{c:'کمیت‌ها و یکاها',t:'mc',q:'یکای «نیوتون (N)» متعلق به کدام کمیت است؟',o:['کار','نیرو','گرما','توان'],a:1,e:'نیرو با نیوتون اندازه‌گیری می‌شود. رابطه‌ی 1J = N·m می‌گوید هر ژول برابر نیوتون‌متر است (یکای کار).'},
+{c:'کمیت‌ها و یکاها',t:'tf',q:'بر اساس رابطه‌ی 1J = N×m، هر ژول برابر با یک نیوتون‌متر است.',a:true,e:'درست! کار = نیرو × جابه‌جایی؛ پس یکای ژول همان نیوتون‌متر است. (این رابطه حاشیه‌ی جزوه‌ات هم هست!)'},
+/* --- دسته B: پیشوندها --- */
+{c:'پیشوندها',t:'mc',q:'پیشوند «نانو» برابر کدام توان از ۱۰ است؟',o:['10⁻⁶','10⁻⁹','10⁹','10⁻¹²'],a:1,e:'نانو = ۱۰⁻⁹؛ یعنی یک‌میلیاردم. (میکرو ۱۰⁻⁶ و پیکو ۱۰⁻¹۲ است)'},
+{c:'پیشوندها',t:'mc',q:'پیشوند ۱۰⁶ چه نام دارد؟',o:['کیلو','مگا','گیگا','هکتو'],a:1,e:'مگا (M) = ۱۰⁶ = میلیون برابر. دقت کن: m کوچک «میلی» است ولی M بزرگ «مگا»!'},
+{c:'پیشوندها',t:'blank',q:'نماد پیشوند «میکرو»، حرف ......... است و برابر ۱۰⁻⁶ می‌باشد.',a:['μ','µ','u'],e:'میکرو با حرف یونانی μ (در تایپ معمولی u) نشان داده می‌شود؛ مثل μm یعنی میکرومتر.'},
+{c:'پیشوندها',t:'mc',q:'کدام‌یک پیشوند کوچک‌کننده است؟',o:['گیگا','پیکو','ترا','دکا'],a:1,e:'پیکو (۱۰⁻¹²) کوچک‌کننده است؛ گیگا، ترا و دکا همه بزرگ‌کننده‌اند.'},
+{c:'پیشوندها',t:'tf',q:'پیشوند «سانتی» برابر ۱۰⁻² است.',a:true,e:'درست! سانتی یعنی یک‌صدم؛ مانند سانتی‌متر که یک‌صدم متر است.'},
+{c:'پیشوندها',t:'mc',q:'ترتیب درست از بزرگ به کوچک کدام است؟',o:['ترا > گیگا > مگا > کیلو','کیلو > مگا > گیگا > ترا','مگا > ترا > گیگا > کیلو','گیگا > ترا > کیلو > مگا'],a:0,e:'توان‌ها: ترا ۱۰¹²، گیگا ۱۰⁹، مگا ۱۰⁶، کیلو ۱۰³ — پس ترتیب درست همین گزینه است.'},
+{c:'پیشوندها',t:'mc',q:'عدد ۱۰⁻¹² با کدام پیشوند نشان داده می‌شود؟',o:['نانو','پیکو','میکرو','هکتو'],a:1,e:'پیکو (p) = ۱۰⁻¹². نانو ۱۰⁻⁹ و میکرو ۱۰⁻⁶ است.'},
+{c:'پیشوندها',t:'tf',q:'پیشوند «دکا» برابر ۱۰⁻¹ است.',a:false,e:'غلط! دکا (da) = ۱۰¹ یعنی بزرگ‌کننده است. آن که ۱۰⁻¹ است «دسی (d)» می‌باشد — مراقب تشابه اسم باش!'}
+,
+/* --- دسته C: تبدیل یکا (محاسباتی) --- */
+{c:'تبدیل یکا',t:'mc',q:'۱ mm برابر است با چند m؟',o:['10³','10⁻³','10⁻⁶','10²'],a:1,e:'میلی = ۱۰⁻³؛ پس هر میلی‌متر یک‌هزارم متر است: 1 mm = 10⁻³ m. (تمرین اول جزوه‌ات)'},
+{c:'تبدیل یکا',t:'mc',q:'۲۰ nm برابر است با چند km؟ (تمرین جزوه!)',o:['2 × 10⁻¹¹','2 × 10⁻⁸','2 × 10⁻⁵','2 × 10¹¹'],a:0,e:'20 nm = 2×10⁻⁸ m و چون هر متر ۱۰⁻³ کیلومتر است: 2×10⁻⁸ × 10⁻³ = 2×10⁻¹¹ km — همان جواب دست‌نویس خودت!'},
+{c:'تبدیل یکا',t:'mc',q:'۵ km برابر است با چند m؟',o:['۵۰۰','۵٬۰۰۰','۰/۰۰۵','۵۰٬۰۰۰'],a:1,e:'کیلو یعنی ۱۰³؛ پس 5 km = 5 × 1000 = 5000 متر.'},
+{c:'تبدیل یکا',t:'mc',q:'۳ cm برابر است با چند mm؟',o:['۰/۳','۳۰','۳۰۰','۳'],a:1,e:'هر سانتی‌متر ۱۰ میلی‌متر است؛ پس 3 cm = 30 mm.'},
+{c:'تبدیل یکا',t:'mc',q:'۱ m² برابر است با چند cm²؟',o:['۱۰۰','10⁴','10²','10⁶'],a:1,e:'نکته‌ی طلایی: واحد هم مربع می‌شود! (10²)² = 10⁴ — نوشتن «۱۰۰» رایج‌ترین اشتباه امتحانی است.'},
+{c:'تبدیل یکا',t:'mc',q:'۱ cm³ برابر است با چند m³؟',o:['10⁻²','10⁻⁶','10⁶','10⁻³'],a:1,e:'سانت = ۱۰⁻² و چون مکعب است: (10⁻²)³ = 10⁻⁶ — توان پیشوند در توان واحد ضرب می‌شود.'},
+{c:'تبدیل یکا',t:'mc',q:'۲۰۰/۱۰۰ nm² تقریباً برابر است با چند Mm²؟ (سوال «ب» جزوه)',o:['2 × 10⁻²⁸','2 × 10⁻¹⁶','2 × 10⁻²','2 × 10²⁸'],a:0,e:'هر nm = 10⁻¹⁵ Mm؛ مربع: (10⁻¹⁵)² = 10⁻³۰ ؛ 2×10² × 10⁻³⁰ = 2×10⁻²⁸ Mm² ✅'},
+{c:'تبدیل یکا',t:'mc',q:'مساحت مربعی ۴۰۰ km² است؛ محیط آن چند cm است؟ (سوال «ج» جزوه)',o:['8 × 10⁶','8 × 10⁴','8 × 10⁸','2 × 10⁶'],a:0,e:'ضلع = √۴۰۰ = ۲۰ km ؛ محیط = ۴×۲۰ = ۸۰ km = 8×10⁴ m = 8×10⁶ cm.'},
+{c:'تبدیل یکا',t:'mc',q:'در مسئله‌ی استوانه‌ی جزوه (r = ۵cm ، h = ۲۰۰۰mm ، π = ۳) حجم چند cm³ است؟ (سوال «د»)',o:['150 × 10²','15 × 10','150 × 10³','15 × 10⁵'],a:0,e:'h = 2000 mm = 200 cm ؛ V = πr²h = 3 × 5² × 200 = 150 × 10² = ۱۵٬۰۰۰ cm³.'},
+{c:'تبدیل یکا',t:'mc',q:'و همان حجم بر حسب μm³ برابر است با:',o:['15 × 10¹⁵','15 × 10⁹','15 × 10⁶','1.5 × 10¹⁰'],a:0,e:'هر 1 cm = 10⁴ μm پس هر cm³ = 10¹² μm³ ؛ 15×10³ × 10¹² = 15×10¹⁵ = 1.5×10¹⁶ μm³.'},
+{c:'تبدیل یکا',t:'mc',q:'۱۰۰ Mm² برابر است با چند m²؟',o:['10¹⁴','10⁸','10¹²','10²⁰'],a:0,e:'(10⁶)² = 10¹² ؛ 10² × 10¹² = 10¹⁴ m². (اگر مکعب بود، جواب ۱۰²⁰ می‌شد!)'},
+{c:'تبدیل یکا',t:'mc',q:'۴۵۰۰ mm برابر است با چند m؟',o:['۴/۵','۴۵','۰/۴۵','۴۵۰'],a:0,e:'4500 × 10⁻³ = 4.5 متر — یعنی چهار و نیم متر.'},
+/* --- دسته D: الکتریسیته ساکن --- */
+{c:'الکتریسیته ساکن',t:'blank',q:'کلمه‌ی الکتریسیته از واژه‌ی «الکترون» گرفته شده که به معنی ......... است.',a:['کهربا','كهربا'],e:'الکترون به معنی «کهربا» است؛ یونانیان باستان با مالیدن کهربا، خاصیت باردار شدن آن را کشف کردند.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'یونانیان باستان با مالیدن کدام جسم به پارچه، پدیده‌ی الکتریکی را کشف کردند؟',o:['کهربا','آهنربا','مس','طلا'],a:0,e:'کهربا! کلمه‌ی الکتریسیته هم از همین واژه (الکترون = کهربا) گرفته شده است.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'انواع الکتریسیته کدام‌اند؟',o:['ساکن و جاری','مثبت و منفی','قوی و ضعیف','رسانا و عایق'],a:0,e:'الکتریسیته دو نوع دارد: «ساکن» (بارهای ثابت روی اجسام) و «جاری» (حرکت بارها در مدار). مثبت و منفی انواع «بار» هستند، نه انواع الکتریسیته.'},
+{c:'الکتریسیته ساکن',t:'blank',q:'به مطالعه‌ی بارهای ساکن در اجسام باردار، الکتریسیته‌ی ......... می‌گویند.',a:['ساکن'],e:'الکتریسیته ساکن = مطالعه‌ی بارهای ساکن روی اجسام باردار؛ نام دیگرش الکتروستاتیک است.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'نام دیگر الکتریسیته‌ی ساکن چیست؟',o:['الکترومغناطیس','الکتروستاتیک','الکترونیک','الکترولیز'],a:1,e:'الکتریسیته ساکن = الکتروستاتیک (Electrostatics)؛ مطالعه‌ی بارهای ساکن.'},
+{c:'الکتریسیته ساکن',t:'tf',q:'مالیدن بادکنک به مو، یک پدیده‌ی الکتریسیته‌ی ساکن است.',a:true,e:'درست! با مالش، الکترون‌ها جابه‌جا می‌شوند و بار روی بادکنک (عایق) ساکن می‌ماند؛ برای همین موها و بادکنک یکدیگر را می‌ربایند.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'جسمی که الکترون اضافی دریافت کند، چه باری پیدا می‌کند؟',o:['مثبت','منفی','خنثی','بی‌بار'],a:1,e:'الکترون بار منفی دارد؛ پس جسمی که الکترون اضافی بگیرد، بار «منفی» پیدا می‌کند.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'جسمی که الکترون از دست بدهد، چه باری پیدا می‌کند؟',o:['مثبت','منفی','خنثی','خنثی‌تر'],a:0,e:'با از دست رفتن الکترون‌ها (بار منفی)، پروتون‌ها برتری پیدا می‌کنند و جسم «مثبت» می‌شود.'},
+{c:'الکتریسیته ساکن',t:'tf',q:'اجسام در حالت عادی از حیث الکتریکی خنثی هستند.',a:true,e:'درست! چون تعداد بارهای مثبت و منفی آن‌ها برابر است و اثر یکدیگر را خنثی می‌کنند.'},
+{c:'الکتریسیته ساکن',t:'mc',q:'منظور از «جسم خنثی» چیست؟',o:['هیچ ذره‌ای ندارد','تعداد بار مثبت و منفی آن برابر است','فقط نوترون دارد','بار منفی‌اش بیشتر است'],a:1,e:'خنثی یعنی تعداد پروتون‌ها (بار ۱+) با تعداد الکترون‌ها (بار ۱−) برابر است و مجموع بار صفر می‌شود.'},
+{c:'الکتریسیته ساکن',t:'blank',q:'اگر جسمی الکترون از دست بدهد، دارای بار ......... می‌شود.',a:['مثبت'],e:'الکترون‌ها بار منفی‌اند؛ وقتی از جسم خارج شوند، جسم بار مثبت می‌گیرد (مثل میله‌ی شیشه‌ای مالش‌داده با ابریشم).'},
+{c:'الکتریسیته ساکن',t:'mc',q:'شانه‌ی پلاستیکی را به موی خشک می‌مالیم؛ شانه چه باری پیدا می‌کند؟',o:['منفی','مثبت','خنثی','بی‌بار'],a:0,e:'شانه هنگام مالش، الکترون از مو می‌گیرد؛ الکترون اضافی = بار منفی. موها بار مثبت می‌گیرند و کمی سیخ می‌شوند!'}
+,
+/* --- دسته E: اتم و ذرات --- */
+{c:'اتم و ذرات',t:'blank',q:'همه‌ی اجسام از ذرات ریز به نام ......... ساخته شده‌اند.',a:['اتم'],e:'همه‌ی اجسام از ذرات بسیار ریزی به نام «اتم» ساخته شده‌اند و هر اتم از سه ذره‌ی اصلی تشکیل شده است.'},
+{c:'اتم و ذرات',t:'mc',q:'سه ذره‌ی اصلی اتم کدام‌اند؟',o:['پروتون، نوترون، الکترون','اتم، مولکول، یون','هسته، پوسته، مدار','مثبت، منفی، خنثی'],a:0,e:'سه ذره‌ی اصلی اتم: پروتون (۱+)، نوترون (بدون بار) و الکترون (۱−).'},
+{c:'اتم و ذرات',t:'mc',q:'بار الکتریکی نسبی پروتون چقدر است؟',o:['۱+','۱−','صفر','۲+'],a:0,e:'بار نسبی پروتون ۱+ است؛ الکترون ۱− و نوترون صفر.'},
+{c:'اتم و ذرات',t:'blank',q:'ذره‌ای از اتم که بار الکتریکی ندارد، ......... نام دارد.',a:['نوترون'],e:'نوترون خنثی است (بار صفر) و در هسته، کنار پروتون‌ها قرار دارد.'},
+{c:'اتم و ذرات',t:'mc',q:'کدام ذرات در مرکز اتم (هسته) قرار دارند؟',o:['پروتون و نوترون','الکترون و پروتون','الکترون و نوترون','فقط الکترون'],a:0,e:'پروتون و نوترون در مرکز اتم قرار دارند؛ دانشمندان مرکز اتم را «هسته» می‌نامند. الکترون‌ها دور هسته می‌گردند.'},
+{c:'اتم و ذرات',t:'blank',q:'به مسیر حرکت الکترون‌ها در فضای دور از هسته، ......... می‌گویند.',a:['اوربیتال','اربیتال'],e:'الکترون‌ها با سرعت فراوان در فضای دور هسته حرکت می‌کنند؛ به مسیر حرکت آن‌ها «اوربیتال» می‌گویند. (جواب جای خالی جزوه‌ات!)'},
+{c:'اتم و ذرات',t:'mc',q:'چه چیزی باعث تفاوت بیش از ۱۰۰ عنصر جدول تناوبی می‌شود؟',o:['تعداد پروتون','تعداد نوترون','حجم اتم','رنگ اتم'],a:0,e:'چیزی که عناصر را از هم متمایز می‌کند، «تعداد پروتون‌های» آن‌هاست — همان جوابی که در جزوه نوشتی!'},
+{c:'اتم و ذرات',t:'tf',q:'جرم الکترون نسبت به پروتون بسیار کوچک است و تقریباً قابل چشم‌پوشی (≈ صفر) است.',a:true,e:'درست! طبق جدول جزوه، جرم نسبی الکترون نسبت به پروتون تقریباً صفر است؛ در حالی که جرم نسبی پروتون و نوترون ۱ است.'}
+,
+/* --- دسته F: روش‌های باردار کردن --- */
+{c:'روش‌های باردار کردن',t:'mc',q:'روش‌های باردار کردن اجسام کدام‌اند؟',o:['مالش، تماس، القا','جذب، دفع، مالش','رسانا، نارسانا، نیم‌رسانا','مثبت، منفی، خنثی'],a:0,e:'سه روش باردار کردن: مالش (انتقال الکترون با اصطکاک)، تماس (انتقال بار با برخورد) و القا (جابه‌جایی بار بدون تماس).'},
+{c:'روش‌های باردار کردن',t:'tf',q:'در روش مالش، الکترون‌ها نه تولید می‌شوند و نه از بین می‌روند؛ فقط از جسمی به جسم دیگر منتقل می‌شوند.',a:true,e:'درست! این قانون پایستگی بار الکتریکی است — مجموع بار دو جسمِ مالش‌داده‌شده همیشه صفر می‌ماند (نکته‌ی مهم جزوه).'},
+{c:'روش‌های باردار کردن',t:'mc',q:'در اثر مالش دو جسم با یکدیگر، کدام ذره جابه‌جا می‌شود؟',o:['فقط الکترون','فقط پروتون','الکترون و پروتون','نوترون'],a:0,e:'فقط الکترون! پروتون‌ها در هسته به‌شدت محکم‌اند و کنده نمی‌شوند؛ اما الکترون‌های لایه‌ی بیرونی به‌راحتی جدا می‌شوند (همان سوال جزوه).'},
+{c:'روش‌های باردار کردن',t:'mc',q:'اگر جسمی را به روش «تماس» باردار کنیم، بار جسم باردارشونده چگونه است؟',o:['ناهمنام با بار جسم باردارکننده','هم‌نام با بار جسم باردارکننده','همیشه مثبت','همیشه منفی'],a:1,e:'در تماس، بارِ هم‌نام با بار جسم باردارکننده روی جسم باردارشونده قرار می‌گیرد (نکته‌ی دست‌نویس جزوه).'},
+{c:'روش‌های باردار کردن',t:'mc',q:'در روش القا، سمتی که به میله‌ی باردار نزدیک‌تر است چه باری پیدا می‌کند؟',o:['همنام با بار میله','ناهمنام با بار میله','خنثی','بستگی به جنس میله دارد'],a:1,e:'نکته‌ی ۲ جزوه: سمت نزدیک‌تر بارِ ناهمنام با میله و سمت دورتر بارِ هم‌نام با میله پیدا می‌کند.'},
+{c:'روش‌های باردار کردن',t:'mc',q:'روش القا در کدام اجسام بهتر انجام می‌شود؟',o:['نارساناها','رساناها','هر دو یکسان','هیچ‌کدام'],a:1,e:'القا در رساناها بسیار بهتر انجام می‌گیرد و در نارساناها به‌سختی رخ می‌دهد؛ بار القایی در نارسانا کم‌اندازه و ناپایدار است (نکته‌ی ۱ جزوه).'},
+{c:'روش‌های باردار کردن',t:'tf',q:'اگر بیش از دو کره‌ی در تماس را با القا باردار کنیم، کره‌های وسط خنثی می‌مانند.',a:true,e:'درست! نکته‌ی ۴ جزوه: فقط کره‌های اول و آخر باردار می‌شوند و کره‌های وسط خنثی می‌مانند.'},
+{c:'روش‌های باردار کردن',t:'mc',q:'در القای یک کره با اتصال به زمین و میله‌ی مثبت، کره چه باری می‌گیرد؟',o:['مثبت (هم‌نام با میله)','منفی (ناهمنام با میله)','خنثی می‌ماند','اول مثبت و بعد منفی'],a:1,e:'با میله‌ی مثبت، الکترون‌ها از زمین وارد کره می‌شوند و بار مثبت را خنثی می‌کنند؛ پس کره منفی می‌شود — همیشه ناهمنام با میله!'},
+{c:'روش‌های باردار کردن',t:'mc',q:'بعد از مالش میله‌ی شیشه‌ای با پارچه‌ی پشمی، جرم میله‌ی شیشه‌ای چه تغییری می‌کند؟',o:['کمی کم می‌شود (الکترون از دست داده)','کمی زیاد می‌شود (الکترون گرفته)','تغییر نمی‌کند چون الکترون جرم ندارد','زیاد می‌شود چون پروتون گرفته'],a:0,e:'نکته‌ی جرم جزوه: جسمی که الکترون از دست می‌دهد سبک‌تر و جسمی که الکترون می‌گیرد سنگین‌تر می‌شود. شیشه بالاتر از پشم در سری الکتریکی است پس الکترون از دست می‌دهد — البته این تغییر آن‌قدر کوچک است که حس نمی‌شود.'}
+,
+/* --- دسته G: سری الکتریکی --- */
+{c:'سری الکتریکی',t:'mc',q:'در جدول سری الکتریکی، کدام ماده در انتهای مثبت قرار دارد؟',o:['تفلون','موی انسان','پلاستیک','کاغذ'],a:1,e:'موی انسان مثبت‌ترین ماده‌ی جدول است (بیشترین تمایل به از دست دادن الکترون) و تفلون منفی‌ترین.'},
+{c:'سری الکتریکی',t:'mc',q:'کدام ماده در انتهای منفی سری الکتریکی قرار دارد؟',o:['شیشه','نایلون','تفلون','پشم'],a:2,e:'تفلون پایین جدول است؛ یعنی بیشترین تمایل را به گرفتن الکترون دارد.'},
+{c:'سری الکتریکی',t:'mc',q:'اگر میله‌ی شیشه‌ای را با پارچه‌ی پشمی مالش دهیم، چه می‌شود؟',o:['شیشه منفی و پشم مثبت','شیشه مثبت و پشم منفی','هر دو مثبت','هر دو منفی'],a:1,e:'شیشه (ردیف ۲) بالاتر از پشم (ردیف ۴) است؛ پس شیشه الکترون از دست می‌دهد (مثبت) و پشم الکترون می‌گیرد (منفی).'},
+{c:'سری الکتریکی',t:'mc',q:'اگر میله‌ی پلاستیکی را با موی گربه مالش دهیم، میله‌ی پلاستیکی چه باری می‌گیرد؟',o:['مثبت','منفی','خنثی','اول مثبت و بعد منفی'],a:1,e:'پلاستیک پایین جدول است و از موی گربه (بالا) الکترون می‌گیرد؛ پس منفی می‌شود.'},
+{c:'سری الکتریکی',t:'mc',q:'هرچه دو ماده در جدول سری الکتریکی از هم دورتر باشند، هنگام مالش آن دو:',o:['جابه‌جایی الکترون کمتر می‌شود','جابه‌جایی الکترون بیشتر می‌شود','همیشه مقدار برابری الکترون جابه‌جا می‌شود','هیچ الکترونی جابه‌جا نمی‌شود'],a:1,e:'فاصله‌ی بیشتر در سری = اختلاف توانایی گرفتن/دادن الکترون بیشتر = انتقال بار بیشتر.'},
+{c:'سری الکتریکی',t:'tf',q:'اگر میله‌ی شیشه‌ای را با موی انسان و میله‌ی پلاستیکی را با موی گربه مالش دهیم، دو میله یکدیگر را جذب می‌کنند.',a:false,e:'غلط! مثال ۱ جزوه: موی انسان بالاتر از شیشه است، پس شیشه منفی می‌شود؛ پلاستیک هم از موی گربه الکترون می‌گیرد و منفی می‌شود → هر دو هم‌نام (منفی) → نیروی دافعه!'},
+{c:'سری الکتریکی',t:'mc',q:'در جدول سری الکتریکی، کدام مواد بین «پنبه» و «برنج و مس» قرار دارند؟',o:['پارچه‌ی کتان و ابریشم مصنوعی','موی انسان و شیشه','تفلون و ساران','نایلون و پشم'],a:0,e:'ترتیب درست: پنبه ← پارچه‌ی کتان ← ابریشم مصنوعی ← برنج و مس.'},
+{c:'سری الکتریکی',t:'blank',q:'ردیف‌بندی مواد بر اساس توانایی‌شان در گرفتن یا از دست دادن الکترون هنگام مالش را جدول سری ......... می‌گویند.',a:['الکتریکی','الکتريكي'],e:'سری الکتریکی (ترایبوالکتریک) — از موی انسان (مثبت‌ترین) تا تفلون (منفی‌ترین).'}
+,
+/* --- دسته H: بار کوانتیده --- */
+{c:'بار کوانتیده',t:'mc',q:'بار بنیادی (اندازه‌ی بار الکترون) چند کولن است؟',o:['1/6 × 10⁻¹⁹','1/6 × 10⁻⁹','6/1 × 10¹⁹','1/9 × 10⁻¹⁶'],a:0,e:'e = 1/6×10⁻¹⁹ کولن — کوچک‌ترین بسته‌ی بار الکتریکی؛ اندازه‌ی بار پروتون و الکترون برابر است.'},
+{c:'بار کوانتیده',t:'blank',q:'به کمیت‌هایی که مقادیر مجزا و ناپیوسته دارند، کمیت‌های ......... می‌گویند.',a:['کوانتیده','كوانتيده','گسسته'],e:'کوانتیده = گسسته و پله‌ای؛ مثال جزوه: تعداد دانش‌آموزان کلاس (برخلاف وزن و قد که پیوسته‌اند).'},
+{c:'بار کوانتیده',t:'mc',q:'کدام‌یک کمیت «پیوسته» است؟',o:['تعداد دانش‌آموزان کلاس','تعداد الکترون‌های یک جسم','قد یک دانش‌آموز','تعداد اعضای یک خانواده'],a:2,e:'قد می‌تواند هر مقداری بین دو عدد باشد (پیوسته)؛ تعدادها فقط عدد صحیح می‌توانند باشند (گسسته/کوانتیده).'},
+{c:'بار کوانتیده',t:'mc',q:'رابطه‌ی بار الکتریکی یک جسم کدام است؟',o:['q = n/e','q = ±ne','q = e/n','q = n²e'],a:1,e:'q = ±ne — بار هر جسم مضرب صحیحی از بار بنیادی است؛ الکترون گرفته ← منفی، الکترون داده ← مثبت.'},
+{c:'بار کوانتیده',t:'mc',q:'جسمی 2×10¹⁰ الکترون از دست داده است؛ بار آن کدام است؟',o:['+3/2 × 10⁻⁹ C','−3/2 × 10⁻⁹ C','+3/2 × 10⁻¹⁹ C','+2 × 10⁻⁹ C'],a:0,e:'q = +ne = 2×10¹⁰ × 1/6×10⁻¹⁹ = +3/2×10⁻⁹ C (مثبت چون الکترون از دست داده؛ 10¹⁰×10⁻¹⁹ = 10⁻⁹).'},
+{c:'بار کوانتیده',t:'mc',q:'بار جسمی −4/8 نانوکولن است؛ این جسم چند الکترون گرفته است؟',o:['3 × 10¹⁰','3 × 10¹⁹','3 × 10¹³','4/8 × 10¹⁰'],a:0,e:'n = |q|/e = 4/8×10⁻⁹ ÷ 1/6×10⁻¹⁹ = 3×10¹⁰ الکترون (منفی بودن بار یعنی الکترون گرفته).'},
+{c:'بار کوانتیده',t:'mc',q:'کدام مقدار «می‌تواند» بار الکتریکی یک جسم باشد؟ (e = 1/6×10⁻¹⁹ C)',o:['6/4 × 10⁻²⁰ C','8 × 10⁻²⁰ C','3/2 × 10⁻¹⁹ C','1/6 × 10⁻²⁰ C'],a:2,e:'3/2×10⁻¹⁹ = 2e است (مضرب صحیح ✓). بقیه کسری از e می‌شوند: 6/4×10⁻²⁰ = ۰/4e و 8×10⁻۲⁰ = ۰/5e و 1/6×10⁻۲⁰ = ۰/1e — بار نمی‌تواند کسری از e باشد! (همان تست جزوه)'},
+{c:'بار کوانتیده',t:'blank',q:'یکای بار الکتریکی در دستگاه SI، ......... نام دارد.',a:['کولن','كولن'],e:'کولن (C)؛ بار الکترون برابر 1/6×10⁻¹⁹ کولن است. هر نانوکولن = 10⁻⁹ کولن.'}
+];
+
+/* ================= موتور آزمون ================= */
+const FA_D=['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+const fa=n=>String(n).replace(/[0-9]/g,d=>FA_D[d]);
+const norm=s=>String(s).replace(/[\u200c\u200f\u200e\u0640]/g,'').replace(/ك/g,'ک').replace(/ي/g,'ی').replace(/\s+/g,' ').trim();
+const TF_OPTS=['✔ درست','✖ غلط'];
+const HINTS={
+  practice:'🎯 <b>حالت تمرین:</b> بعد از انتخاب هر گزینه، درستی آن فوراً مشخص می‌شود و توضیح آموزشی نمایش داده می‌شود.',
+  exam:'🏆 <b>حالت امتحان:</b> بدون بازخورد به سوال‌ها جواب بده؛ در پایان با زدن «پایان آزمون»، نمره از ۲۰ + پاسخ‌نامه‌ی کامل را می‌بینی.'
+};
+let mode='practice',picked={},done=new Set(),graded=false,states={};
+
+const quizArea=document.getElementById('quizArea');
+const pfill=document.getElementById('pfill'),qmeta=document.getElementById('qmeta');
+const submitBtn=document.getElementById('submitBtn'),resetBtn=document.getElementById('resetBtn');
+const resultBox=document.getElementById('result'),modeHint=document.getElementById('modeHint');
+
+function qTypeLabel(t){return t==='mc'?'چهارگزینه‌ای':(t==='tf'?'صح/غلط':'جای خالی')}
+function correctIndex(q){return q.t==='tf'?(q.a?0:1):q.a}
+
+function render(){
+  quizArea.innerHTML='';
+  Q.forEach((q,i)=>{
+    const card=document.createElement('div');card.className='q-card';card.id='qc'+i;
+    let body='<div class="q-top"><span class="q-num">'+fa(i+1)+'</span><span class="q-cat">'+q.c+'</span><span class="q-type">'+qTypeLabel(q.t)+'</span></div>';
+    body+='<div class="q-text">'+q.q+'</div>';
+    if(q.t==='blank'){
+      body+='<div class="blank-row"><input class="blank-input" id="bi'+i+'" type="text" placeholder="پاسخ خود را بنویس..." autocomplete="off">'
+        +(mode==='practice'?'<button class="btn btn-ghost blank-btn" type="button" data-q="'+i+'">ثبت</button>':'')+'</div>';
+    }else{
+      const opts=q.t==='tf'?TF_OPTS:q.o;
+      body+='<div class="opts">'+opts.map((o,j)=>'<button class="opt" type="button" data-q="'+i+'" data-o="'+j+'">'+o+'</button>').join('')+'</div>';
+    }
+    body+='<div class="expl" id="ex'+i+'"></div>';
+    card.innerHTML=body;quizArea.appendChild(card);
+  });
+  quizArea.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>pickOpt(+b.dataset.q,+b.dataset.o,b)));
+  quizArea.querySelectorAll('.blank-btn').forEach(b=>b.addEventListener('click',()=>checkBlank(+b.dataset.q)));
+  quizArea.querySelectorAll('.blank-input').forEach(inp=>inp.addEventListener('input',()=>{
+    const i=+inp.id.slice(2);if(graded||mode!=='exam')return;
+    picked[i]=inp.value;if(norm(inp.value))done.add(i);else done.delete(i);updateProgress();
+  }));
+  if(graded)revealAll(true);
+  updateProgress();
+}
+
+function setExpl(i,wrong){
+  const q=Q[i],ex=document.getElementById('ex'+i);if(!ex)return;
+  let html='<b>💡 توضیح:</b> '+q.e;
+  if(q.t==='blank'&&wrong)html='<b>✅ پاسخ درست:</b> '+q.a[0]+'<br>'+html;
+  ex.innerHTML=html;ex.classList.add('show');
+}
+
+function pickOpt(i,j,btn){
+  if(graded)return;
+  const q=Q[i],card=document.getElementById('qc'+i),opts=card.querySelectorAll('.opt');
+  if(mode==='practice'){
+    if(done.has(i))return;
+    done.add(i);picked[i]=j;
+    const ok=(q.t==='tf')?((j===0)===q.a):(j===q.a);
+    states[i]=ok;
+    btn.classList.add(ok?'ok':'no');
+    if(!ok)opts[correctIndex(q)].classList.add('ok');
+    opts.forEach(o=>o.classList.add('off'));
+    setExpl(i,!ok);
+    if(done.size===Q.length)showResult();
+  }else{
+    picked[i]=j;done.add(i);
+    opts.forEach(o=>o.classList.remove('sel'));
+    btn.classList.add('sel');
+  }
+  updateProgress();
+}
+
+function checkBlank(i){
+  if(graded||(mode==='practice'&&done.has(i)))return;
+  const q=Q[i],inp=document.getElementById('bi'+i),val=inp.value;
+  if(!norm(val)){inp.focus();return}
+  const ok=q.a.some(a=>norm(a)===norm(val));
+  if(mode==='practice'){
+    done.add(i);states[i]=ok;
+    inp.disabled=true;inp.classList.add(ok?'ok':'no');
+    const bb=quizArea.querySelector('.blank-btn[data-q="'+i+'"]');if(bb)bb.disabled=true;
+    setExpl(i,!ok);
+    if(done.size===Q.length)showResult();
+  }else{
+    picked[i]=val;done.add(i);
+  }
+  updateProgress();
+}
+
+function updateProgress(){
+  pfill.style.width=(done.size/Q.length*100)+'%';
+  qmeta.textContent='پاسخ‌داده: '+fa(done.size)+' از '+fa(Q.length);
+}
+
+function revealAll(silent){
+  Q.forEach((q,i)=>{
+    const card=document.getElementById('qc'+i);if(!card)return;
+    if(q.t==='blank'){
+      const inp=document.getElementById('bi'+i);
+      if(inp){inp.disabled=true;
+        const ok=states[i];inp.classList.add(ok?'ok':'no');
+        const bb=quizArea.querySelector('.blank-btn[data-q="'+i+'"]');if(bb)bb.disabled=true;
+        if(!ok)inp.placeholder='پاسخ درست: '+q.a[0];
+      }
+    }else{
+      const opts=card.querySelectorAll('.opt');
+      opts.forEach(o=>o.classList.add('off'));opts.forEach(o=>o.classList.remove('sel'));
+      const ci=correctIndex(q);if(opts[ci])opts[ci].classList.add('ok');
+      if(states[i]===false&&opts[picked[i]]!=null)opts[picked[i]].classList.add('no');
+    }
+    setExpl(i,states[i]===false);
+  });
+}
+
+function showResult(){
+  graded=true;let correct=0;
+  Q.forEach((q,i)=>{
+    let ok=false;
+    if(q.t==='blank'){ok=(picked[i]!=null)&&q.a.some(a=>norm(a)===norm(picked[i]))}
+    else{ok=(picked[i]!=null)&&((q.t==='tf')?((picked[i]===0)===q.a):(picked[i]===q.a))}
+    states[i]=ok;if(ok)correct++;
+  });
+  revealAll();
+  const total=Q.length,pct=Math.round(correct/total*100);
+  const rawScore=(Math.round(correct/total*200)/10).toString();
+  document.getElementById('rScore').textContent=fa(rawScore.replace('.','/'));
+  document.getElementById('ringVal').style.strokeDashoffset=(326.7*(1-correct/total)).toFixed(1);
+  let msg,cls='';
+  if(pct>=90){msg='🏆 فوق‌العاده! تو کاملاً آماده‌ی امتحانی!';cls='#15803d'}
+  else if(pct>=70){msg='🎉 عالی بود! فقط چند نکته را مرور کن.';cls='#4338ca'}
+  else if(pct>=50){msg='💪 خوب بود، ولی سراغ جزوه برو و ضعف‌ها را رفع کن.';cls='#b45309'}
+  else{msg='📚 ناامید نشو! بخش آموزشی را یک‌بار دیگر بخوان و دوباره تلاش کن.';cls='#b91c1c'}
+  const rMsg=document.getElementById('rMsg');rMsg.textContent=msg;rMsg.style.color=cls;
+  document.getElementById('rSub').textContent=fa(correct)+' پاسخ درست از '+fa(total)+' سوال — '+fa(pct)+'٪';
+  const cats={};Q.forEach((q,i)=>{if(!cats[q.c])cats[q.c]={t:0,c:0};cats[q.c].t++;if(states[i])cats[q.c].c++});
+  const catBars=document.getElementById('catBars');catBars.innerHTML='';
+  Object.keys(cats).forEach(cn=>{
+    const d=cats[cn],p=Math.round(d.c/d.t*100);
+    const row=document.createElement('div');row.className='cat-row';
+    row.innerHTML='<div class="lbl"><span>'+cn+'</span><span>'+fa(d.c)+' از '+fa(d.t)+' — '+fa(p)+'٪</span></div><div class="cat-bar"><div class="cat-fill" data-w="'+p+'"></div></div>';
+    catBars.appendChild(row);
+  });
+  resultBox.classList.add('show');
+  submitBtn.disabled=true;submitBtn.textContent='✅ نمره ثبت شد';
+  setTimeout(()=>{resultBox.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(()=>{document.querySelectorAll('.cat-fill').forEach(f=>f.style.width=f.dataset.w+'%')},350);
+  },150);
+}
+
+submitBtn.addEventListener('click',()=>{
+  if(mode!=='exam'||graded)return;
+  if(done.size===0)return;
+  const un=Q.length-done.size;
+  if(un>0&&!confirm('به '+fa(un)+' سوال پاسخ نداده‌ای! با این حال نمره ثبت شود؟'))return;
+  showResult();
+});
+
+resetBtn.addEventListener('click',()=>{
+  picked={};done.clear();graded=false;states={};
+  resultBox.classList.remove('show');
+  document.getElementById('ringVal').style.strokeDashoffset=326.7;
+  submitBtn.disabled=(mode!=='exam');submitBtn.textContent='🏁 پایان آزمون و مشاهده نمره';
+  render();document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+document.querySelectorAll('.mode-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  const m=btn.dataset.mode;if(m===mode)return;
+  if(done.size>0&&!confirm('با تغییر حالت، همه‌ی پاسخ‌ها پاک می‌شوند. ادامه می‌دهی؟'))return;
+  mode=m;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  modeHint.innerHTML=HINTS[m];
+  picked={};done.clear();graded=false;states={};
+  resultBox.classList.remove('show');
+  submitBtn.disabled=false;submitBtn.textContent='🏁 پایان آزمون و مشاهده نمره';
+  submitBtn.style.display=(m==='exam')?'':'none';
+  render();
+}));
+
+/* حالت پیش‌فرض: تمرین — دکمه پایان مخفی */
+submitBtn.style.display='none';
+render();
+
+/* ================= ابزارهای تعاملی فصل‌های جدید ================= */
+/* --- دکمه‌های «چرا؟» آزمایش‌ها --- */
+document.querySelectorAll('.why-btn').forEach(b=>b.addEventListener('click',()=>{
+  const body=b.nextElementSibling,open=body.classList.toggle('open');
+  b.textContent=open?'بستن پاسخ 🙈':'چرا؟ 🤔';
+}));
+
+/* --- دموی مالش (شیشه × پشم) --- */
+(function(){
+  const st=document.getElementById('fricStage');if(!st)return;
+  const btn=document.getElementById('fricBtn'),gs=document.getElementById('glassSign'),
+        cs=document.getElementById('clothSign'),hint=document.getElementById('fricHint'),
+        out=document.getElementById('fricOut');
+  let rubbed=false;
+  btn.addEventListener('click',()=>{
+    rubbed=!rubbed;st.classList.toggle('rub',rubbed);
+    if(rubbed){
+      gs.textContent='+ + + (مثبت شد)';gs.classList.add('pos');
+      cs.textContent='− − − (منفی شد)';cs.classList.add('neg');
+      hint.textContent='۳ الکترون منتقل شد!';
+      btn.textContent='🔄 از اول (خنثی کن)';
+      out.innerHTML='<b>نتیجه:</b> شیشه در سری الکتریکی بالاتر از پشم است ← شیشه ۳ الکترون از دست داد و بار <b>مثبت</b> گرفت؛ پشم همان الکترون‌ها را گرفت و <b>منفی</b> شد. مجموع بار دو جسم هنوز صفر است — پایستگی بار! ⚖️';
+    }else{
+      gs.textContent='خنثی';gs.classList.remove('pos');
+      cs.textContent='خنثی';cs.classList.remove('neg');
+      hint.textContent='شیشه ✖ پشم';
+      btn.textContent='🫳 مالش بده!';
+      out.innerHTML='شیشه در جدول سری الکتریکی بالاتر از پشم است؛ پس در مالش <b>الکترون از دست می‌دهد</b> و مثبت می‌شود، و پشم الکترون می‌گیرد و منفی می‌شود.';
+    }
+  });
+})();
+
+/* --- استپرهای صحنه‌ها (تماس، القای دو کره، القای یک کره) --- */
+document.querySelectorAll('.stepper').forEach(st=>{
+  const scenes=[...st.querySelectorAll('.step-scene')];
+  const info=st.querySelector('.step-info'),dots=st.querySelector('.step-dots');
+  const prev=st.querySelector('.st-prev'),next=st.querySelector('.st-next');
+  if(!scenes.length||!info)return;
+  dots.innerHTML=scenes.map(()=>'<i></i>').join('');
+  let cur=0;
+  function show(i){
+    cur=Math.max(0,Math.min(scenes.length-1,i));
+    scenes.forEach((s,j)=>s.classList.toggle('cur',j===cur));
+    [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===cur));
+    info.innerHTML='<b>مرحله‌ی '+fa(cur+1)+' از '+fa(scenes.length)+':</b> '+scenes[cur].querySelector('.scene-cap').textContent;
+    prev.disabled=cur===0;next.disabled=cur===scenes.length-1;
+  }
+  prev.addEventListener('click',()=>show(cur-1));
+  next.addEventListener('click',()=>show(cur+1));
+  show(0);
+});
+
+/* --- آکاردئون چالش سه کره --- */
+document.querySelectorAll('.ch-head').forEach(h=>h.addEventListener('click',()=>{
+  h.classList.toggle('open');h.parentElement.classList.toggle('open');
+}));
+
+/* --- آزمایشگاه سری الکتریکی --- */
+(function(){
+  const MATS=['موی انسان','شیشه','نایلون','پشم','موی گربه','سرب','ابریشم','آلومینیوم','کاغذ','پنبه','پارچه‌ی کتان','ابریشم مصنوعی','برنج و مس','پلاستیک','ساران','تفلون'];
+  const sa=document.getElementById('matA'),sb=document.getElementById('matB');
+  if(!sa||!sb)return;
+  MATS.forEach((m,i)=>{sa.add(new Option(m,i));sb.add(new Option(m,i))});
+  sa.selectedIndex=1;sb.selectedIndex=3;
+  document.getElementById('labBtn').addEventListener('click',()=>{
+    const out=document.getElementById('labOut'),i=+sa.value,j=+sb.value;
+    if(i===j){out.innerHTML='⚠️ دو ماده‌ی <b>یکسان</b> را مالش نده! دو جسم هم‌جنس جایگاه یکسانی در سری دارند و بار قابل‌توجهی مبادله نمی‌کنند.';return}
+    const hi=Math.min(i,j),lo=Math.max(i,j),dist=lo-hi;
+    const amount=dist>=8?'خیلی زیاد':(dist>=4?'زیاد':(dist>=2?'متوسط':'کم'));
+    out.innerHTML='🧼 <b>بعد از مالش:</b><br><b>'+MATS[hi]+'</b> (بالاتر در سری) الکترون از دست می‌دهد و بار <b style="color:#b45309">مثبت ➕</b> می‌گیرد.<br><b>'+MATS[lo]+'</b> (پایین‌تر) الکترون می‌گیرد و بار <b style="color:#0369a1">منفی ➖</b> می‌گیرد.<br>📍 فاصله در سری: '+fa(dist)+' پله ← جابه‌جایی الکترون <b>'+amount+'</b> است و چون بارها ناهمنام‌اند، دو جسم یکدیگر را <b>جذب</b> می‌کنند!';
+  });
+})();
+
+/* --- تست تعاملی کوانتیده (مثال ۴ جزوه) --- */
+(function(){
+  const box=document.getElementById('mqOpts');if(!box)return;
+  const ex=document.getElementById('mqExpl');let doneMq=false;
+  const faq=()=>{doneMq=true};
+  box.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    if(doneMq)return;faq();
+    const res=b.dataset.res;
+    box.querySelectorAll('.opt').forEach(o=>o.classList.add('off'));
+    if(res==='ok'){
+      b.classList.add('ok');
+      ex.innerHTML='<b>✅ آفرین! پاسخ درست — همان گزینه‌ای که در جزوه تیک خورده.</b><br>چون ۳/۲×۱۰⁻¹⁹ = ۲ × (۱/۶×۱۰⁻¹⁹) = 2e است؛ یعنی مضرب <b>صحیح</b> از بار بنیادی. گزینه‌ی ۲ (۰/۴e) و گزینه‌ی ۳ (۰/۵e) کسری از e هستند و بار نمی‌توانند باشند.';
+    }else if(res==='no'){
+      b.classList.add('no');
+      box.querySelector('.opt[data-res="ok"]').classList.add('ok');
+      const which=b.textContent.trim().startsWith('۲')?'۶/۴×۱۰⁻²⁰ = ۰/۴e':'۸×۱۰⁻²⁰ = ۰/۵e';
+      ex.innerHTML='<b>❌ این مقدار بار نمی‌تواند باشد.</b><br>چون '+which+' است — کسری از بار بنیادی! تعداد الکترون‌ها باید عدد صحیح باشد. پاسخ درست گزینه‌ی ۱ است: ۳/۲×۱۰⁻¹⁹ = 2e ✓';
+    }else{
+      b.classList.add('sel');
+      ex.innerHTML='<b>👀 چشم‌تیز! نکته‌ی ظریف:</b><br>۱۶×۱۰⁻۲⁰ = ۱/۶×۱۰⁻¹⁹ = خودِ e است؛ پس از نظر فیزیکی این هم مضرب صحیح (n=1) است! در جزوه گزینه‌ی ۱ (n=2) به‌عنوان پاسخ علامت خورده که قطعاً درست است — طراح سوال معمولاً فقط یک گزینه را در نظر می‌گیرد.';
+    }
+    ex.classList.add('show');
+  }));
+})();
+
+/* --- ماشین‌حساب بار الکتریکی --- */
+(function(){
+  const E=1.6e-19,SUP='⁰¹²³⁴⁵⁶⁷⁸۹',FAD='۰۱۲۳۴۵۶۷۸۹';
+  const supFa=n=>String(n).replace(/[0-9]/g,d=>SUP[+d]).replace(/-/g,'⁻');
+  const faNum=x=>String(x).replace(/[0-9]/g,d=>FAD[+d]);
+  const grpFa=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'٬').replace(/[0-9]/g,d=>FAD[+d]);
+  function fmtPow(x){
+    if(!isFinite(x))return '∞';
+    if(x===0)return '۰';
+    const sgn=x<0?'−':'',ax=Math.abs(x);
+    let exp=Math.floor(Math.log10(ax)),man=ax/Math.pow(10,exp);
+    man=Math.round(man*100)/100;
+    if(man>=10){man/=10;exp++}
+    if(exp>=0&&exp<=3){const r=Math.round(ax*100)/100;return sgn+faNum(r).replace('.','/')}
+    let out=sgn+faNum(man).replace('.','/');
+    if(exp!==0)out+=' × ۱۰'+supFa(exp);
+    return out;
+  }
+  const tabs=document.querySelectorAll('.calc-tabs .mode-btn');
+  if(!tabs.length)return;
+  tabs.forEach(b=>b.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.toggle('active',x===b));
+    const n2q=b.dataset.cm==='n2q';
+    document.getElementById('calcN2Q').style.display=n2q?'':'none';
+    document.getElementById('calcQ2N').style.display=n2q?'none':'';
+  }));
+  document.getElementById('calcBtn1').addEventListener('click',()=>{
+    const out=document.getElementById('calcOut'),n=parseFloat(document.getElementById('calcN').value);
+    if(!isFinite(n)||n<=0||n!==Math.round(n)){
+      out.className='calc-out err';
+      out.innerHTML='⚠️ تعداد الکترون باید <b>عدد صحیح و مثبت</b> باشد (مثلاً 10000000000 یعنی ۱۰¹⁰).';return;
+    }
+    const s=+document.getElementById('calcSign').value,q=s*n*E;
+    const isPow=n>0&&Math.abs(Math.log10(n)-Math.round(Math.log10(n)))<1e-9;
+    const nStr=isPow?'۱۰'+supFa(Math.round(Math.log10(n))):grpFa(n);
+    out.className='calc-out';
+    let html='<b>راه‌حل:</b> q = '+(s<0?'−':'+')+'ne = '+(s<0?'−':'+')+nStr+' × ۱/۶×۱۰⁻¹⁹<br><b>جواب: q = '+fmtPow(q)+' C</b>';
+    if(Math.abs(q)<1e-5)html+=' = '+fmtPow(q/1e-9)+' نانوکولن';
+    else if(Math.abs(q)<1e-2)html+=' = '+fmtPow(q/1e-6)+' میکروکولن';
+    html+='<br><span style="font-size:.8rem;color:#64748b">('+(s<0?'الکترون گرفته ← بار منفی':'الکترون از دست داده ← بار مثبت')+')</span>';
+    out.innerHTML=html;
+  });
+  document.getElementById('calcBtn2').addEventListener('click',()=>{
+    const out=document.getElementById('calcOut'),v=parseFloat(document.getElementById('calcQ').value);
+    if(!isFinite(v)||v===0){
+      out.className='calc-out err';
+      out.innerHTML='⚠️ مقدار بار را وارد کن (مثلاً 3.2 با یکای نانوکولن).';return;
+    }
+    const mult=+document.getElementById('calcUnit').value,q=Math.abs(v)*mult,n=q/E;
+    if(!(mult>0)||!(q>0)||!isFinite(q)){
+      out.className='calc-out err';
+      out.innerHTML='⚠️ مقدار بار و یکای آن را درست انتخاب کن.';return;
+    }
+    if(Math.abs(n-Math.round(n))>1e-6*Math.max(1,Math.abs(n))){
+      out.className='calc-out err';
+      out.innerHTML='<b>❌ این مقدار نمی‌تواند بار الکتریکی باشد!</b><br>چون تقسیم بر e عدد صحیح نمی‌دهد: n = '+fmtPow(n)+' — تعداد الکترون‌ها باید عدد صحیح باشد (بار، کوانتیده است!).';
+    }else{
+      const ni=Math.round(n),nDisp=(ni<=1e15?grpFa(ni):fmtPow(ni));
+      out.className='calc-out';
+      out.innerHTML='<b>راه‌حل:</b> n = |q| / e = '+fmtPow(q)+' ÷ ۱/۶×۱۰⁻¹⁹<br><b>جواب: n = '+nDisp+' الکترون</b>'+(v<0?' — چون بار منفی است، جسم این‌قدر الکترون <b>گرفته</b> است.':' — چون بار مثبت است، جسم این‌قدر الکترون <b>از دست داده</b> است.');
+    }
+  });
+})();
+
+
+/* ================= اسکرول و انیمیشن ================= */
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{toTop.classList.toggle('show',window.scrollY>600)});
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const navLinks=document.querySelectorAll('.nav a');
+const secObs=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){
+    navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
+  }});
+},{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('section[id],header[id]').forEach(s=>secObs.observe(s));
+
+const revObs=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');revObs.unobserve(en.target)}});
+},{rootMargin:'0px 0px -30px 0px',threshold:0});
+document.querySelectorAll('.reveal,.stairs,.ramp').forEach(el=>revObs.observe(el));
+</script>
+</body>
+</html>
